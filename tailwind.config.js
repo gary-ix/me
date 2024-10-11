@@ -1,10 +1,13 @@
-import { fontFamily } from 'tailwindcss/defaultTheme'
+import animate from 'tailwindcss-animate'
 
 /** @type {import('tailwindcss').Config} */
-const config = {
-	content: ['./src/**/*.{html,js,svelte,ts}'],
+export default {
+	content: [
+		'./src/**/*.{html,js,svelte,ts}',
+		'../../packages/ui/src/**/*.{html,js,svelte,ts}'
+	],
 	darkMode: ['class'],
-	safelist: ['dark'],
+	plugins: [animate],
 	theme: {
 		container: {
 			center: true,
@@ -14,51 +17,101 @@ const config = {
 			}
 		},
 		extend: {
+			animation: {
+				'accordion-down': 'accordion-down 0.2s ease-out',
+				'accordion-up': 'accordion-up 0.2s ease-out'
+			},
 			borderRadius: {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)'
 			},
 			colors: {
-				accent: {
-					DEFAULT: 'hsl(var(--accent) / <alpha-value>)',
-					foreground: 'hsl(var(--accent-foreground) / <alpha-value>)'
+				accentHard: {
+					alt1: 'var(--accentHard-alt1)',
+					alt2: 'var(--accentHard-alt2)',
+					alt3: 'var(--accentHard-alt3)',
+					alt4: 'var(--accentHard-alt4)',
+					DEFAULT: 'var(--accentHard-alt1)',
+					foreground: 'var(--foreground)',
+					start: 'var(--accentHard-start)'
 				},
-				background: 'hsl(var(--background) / <alpha-value>)',
-				border: 'hsl(var(--border) / <alpha-value>)',
+				accentSubtle: {
+					alt1: 'var(--accentSubtle-alt1)',
+					alt2: 'var(--accentSubtle-alt2)',
+					alt3: 'var(--accentSubtle-alt3)',
+					alt4: 'var(--accentSubtle-alt4)',
+					DEFAULT: 'var(--accentSubtle-alt1)',
+					foreground: 'var(--foreground)',
+					start: 'var(--accentSubtle-start)'
+				},
+				background: {
+					accent: 'var(--background-accent)',
+					DEFAULT: 'var(--background-start)',
+					foreground: 'var(--foreground)',
+					start: 'var(--background-start)'
+				},
+
+				border: 'var(--accentSubtle-alt2)',
+
 				card: {
-					DEFAULT: 'hsl(var(--card) / <alpha-value>)',
-					foreground: 'hsl(var(--card-foreground) / <alpha-value>)'
+					DEFAULT: 'var(--background-start)',
+					foreground: 'var(--foreground)'
 				},
+
 				destructive: {
-					DEFAULT: 'hsl(var(--destructive) / <alpha-value>)',
-					foreground: 'hsl(var(--destructive-foreground) / <alpha-value>)'
+					DEFAULT: 'var(--destructive)',
+					foreground: 'var(--foreground)'
 				},
-				foreground: 'hsl(var(--foreground) / <alpha-value>)',
-				input: 'hsl(var(--input) / <alpha-value>)',
+
+				foreground: {
+					alt1: 'var(--foreground-alt1)',
+					DEFAULT: 'var(--foreground)',
+					inverse: 'var(--foreground-inverse)'
+				},
+				input: 'var(--background-start)',
+				loss: {
+					DEFAULT: 'var(--loss-start)',
+					start: 'var(--loss-start)'
+				},
 				muted: {
-					DEFAULT: 'hsl(var(--muted) / <alpha-value>)',
-					foreground: 'hsl(var(--muted-foreground) / <alpha-value>)'
+					DEFAULT: 'var(--accentSubtle-alt3)',
+					foreground: 'var(--foreground)'
+				},
+				neutral: {
+					start: 'var(--neutral-start)'
 				},
 				popover: {
-					DEFAULT: 'hsl(var(--popover) / <alpha-value>)',
-					foreground: 'hsl(var(--popover-foreground) / <alpha-value>)'
+					DEFAULT: 'var(--background-start)',
+					foreground: 'var(--foreground)'
 				},
 				primary: {
-					DEFAULT: 'hsl(var(--primary) / <alpha-value>)',
-					foreground: 'hsl(var(--primary-foreground) / <alpha-value>)'
+					DEFAULT: 'var(--background-start)',
+					foreground: 'var(--foreground)'
 				},
-				ring: 'hsl(var(--ring) / <alpha-value>)',
+
+				ring: 'var(--accentSubtle-alt2)',
 				secondary: {
-					DEFAULT: 'hsl(var(--secondary) / <alpha-value>)',
-					foreground: 'hsl(var(--secondary-foreground) / <alpha-value>)'
+					DEFAULT: 'var(--accentSubtle-alt2)',
+					foreground: 'var(--foreground)'
+				},
+				test: 'var(--test)',
+				warning: {
+					DEFAULT: 'var(--warning)',
+					foreground: 'var(--foreground)'
 				}
 			},
 			fontFamily: {
-				sans: [...fontFamily.sans]
+				mono: ['Consolas']
+			},
+			fontSize: {
+				base: '0.925rem',
+				sm: '0.85rem',
+				xs: '.75rem',
+				xxs: '.675rem',
+				xxxs: '.6rem',
+				xxxxs: '.5rem'
 			}
 		}
 	}
 }
-
-export default config
