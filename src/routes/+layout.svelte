@@ -13,13 +13,13 @@
 		}
 	}
 
-	function scrollToSection(event: MouseEvent, sectionId: string) {
+	function navigateOrScroll(event: MouseEvent, sectionId: string) {
 		event.preventDefault()
-
 		const isHomePage = window.location.pathname === '/'
 
 		if (!isHomePage) {
-			window.location.href = '/#' + sectionId
+			// Navigate to home page without hash
+			window.location.href = '/'
 		} else {
 			const section = document.getElementById(sectionId)
 
@@ -63,42 +63,42 @@
 >
 	<nav class="container mx-auto flex items-center justify-between px-4 py-3">
 		<div class="logo pl-2">
-			<img alt="Logo" class="h-10 rounded-md" src="./favicon.png" />
+			<img alt="Logo" class="h-10 rounded-md" src="/favicon.png" />
 		</div>
 		<ul class="flex items-center space-x-6 pr-8">
 			<li>
 				<a
 					class={`${linkClasses} ${activeSection === 'home' ? 'font-bold text-foreground' : ''}`}
-					href="#home"
+					href="/"
 					onclick={e => {
-						return scrollToSection(e, 'home')
+						return navigateOrScroll(e, 'home')
 					}}>Home</a
 				>
 			</li>
 			<li>
 				<a
 					class={`${linkClasses} ${activeSection === 'about' ? 'font-bold text-foreground' : ''}`}
-					href="#about"
+					href="/#about"
 					onclick={e => {
-						return scrollToSection(e, 'about')
+						return navigateOrScroll(e, 'about')
 					}}>About</a
 				>
 			</li>
 			<li>
 				<a
 					class={`${linkClasses} ${activeSection === 'projects' ? 'font-bold text-foreground' : ''}`}
-					href="#projects"
+					href="/#projects"
 					onclick={e => {
-						return scrollToSection(e, 'projects')
+						return navigateOrScroll(e, 'projects')
 					}}>Projects</a
 				>
 			</li>
 			<li>
 				<a
 					class={`${linkClasses} ${activeSection === 'contact' ? 'font-bold text-foreground' : ''}`}
-					href="#contact"
+					href="/#contact"
 					onclick={e => {
-						return scrollToSection(e, 'contact')
+						return navigateOrScroll(e, 'contact')
 					}}>Contact</a
 				>
 			</li>
