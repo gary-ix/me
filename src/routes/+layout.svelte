@@ -136,11 +136,11 @@
 			</button>
 		</div>
 		<nav class="mt-4 md:mt-24">
-			<ul class="flex flex-col space-y-2">
+			<ul class="flex flex-row justify-around md:flex-col md:space-y-2">
 				{#each ['ABOUT', 'PROJECTS', 'EXPERIENCE'] as section}
-					<li>
+					<li class="flex-1 md:flex-none">
 						<a
-							class="group relative block px-4 py-2 text-lg font-medium transition-all duration-300"
+							class="group relative block px-2 py-2 text-center text-sm font-medium transition-all duration-300 md:text-left md:text-lg"
 							class:active-section={activeSection === section.toLowerCase() ||
 								(section === 'PROJECTS' && isProjectsRoute)}
 							href={`/#${section.toLowerCase()}`}
@@ -148,9 +148,9 @@
 								return navigateOrScroll(e, section.toLowerCase())
 							}}
 						>
-							<!-- Indicator character -->
+							<!-- Indicator character (hidden on mobile) -->
 							<span
-								class="absolute left-0 transition-all duration-300"
+								class="absolute left-0 hidden transition-all duration-300 md:block"
 								class:opacity-0={activeSection !== section.toLowerCase() &&
 									!(section === 'PROJECTS' && isProjectsRoute)}
 								class:opacity-100={activeSection === section.toLowerCase() ||
@@ -163,10 +163,10 @@
 							</span>
 							<!-- Text content -->
 							<span
-								class="relative z-10 transition-all duration-300 group-hover:pl-3 group-hover:text-foreground-alt1"
+								class="relative z-10 transition-all duration-300 group-hover:text-foreground-alt1"
 								class:font-bold={activeSection === section.toLowerCase() ||
 									(section === 'PROJECTS' && isProjectsRoute)}
-								class:pl-3={activeSection === section.toLowerCase() ||
+								class:md:pl-6={activeSection === section.toLowerCase() ||
 									(section === 'PROJECTS' && isProjectsRoute)}
 								class:text-accentHard-alt3={activeSection !==
 									section.toLowerCase() &&
