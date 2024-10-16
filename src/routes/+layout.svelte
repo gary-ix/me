@@ -148,39 +148,36 @@
 								return navigateOrScroll(e, section.toLowerCase())
 							}}
 						>
+							<!-- Indicator character -->
+							<span
+								class="absolute left-0 transition-all duration-300"
+								class:opacity-0={activeSection !== section.toLowerCase() &&
+									!(section === 'PROJECTS' && isProjectsRoute)}
+								class:opacity-100={activeSection === section.toLowerCase() ||
+									(section === 'PROJECTS' && isProjectsRoute)}
+							>
+								{activeSection === section.toLowerCase() ||
+								(section === 'PROJECTS' && isProjectsRoute)
+									? ''
+									: ''}
+							</span>
 							<!-- Text content -->
 							<span
-								class="relative z-10 transition-all duration-300
-								{activeSection === section.toLowerCase() ||
-								(section === 'PROJECTS' && isProjectsRoute)
-									? 'translate-x-4 font-bold text-foreground'
-									: 'text-accentHard-alt3 group-hover:text-accentHard-alt4'}"
+								class="relative z-10 transition-all duration-300"
+								class:font-bold={activeSection === section.toLowerCase() ||
+									(section === 'PROJECTS' && isProjectsRoute)}
+								class:pl-4={activeSection === section.toLowerCase() ||
+									(section === 'PROJECTS' && isProjectsRoute)}
+								class:text-accentHard-alt3={activeSection !==
+									section.toLowerCase() &&
+									!(section === 'PROJECTS' && isProjectsRoute)}
+								class:text-foreground={activeSection ===
+									section.toLowerCase() ||
+									(section === 'PROJECTS' && isProjectsRoute)}
+								class:translate-x-4={activeSection === section.toLowerCase() ||
+									(section === 'PROJECTS' && isProjectsRoute)}
 							>
 								{section}
-							</span>
-							<!-- Background effect -->
-							<span
-								class="absolute inset-0 z-0 bg-accentHard-alt4 transition-all duration-300
-								{activeSection === section.toLowerCase() ||
-								(section === 'PROJECTS' && isProjectsRoute)
-									? 'scale-105 opacity-100'
-									: 'opacity-0 group-hover:opacity-20'}
-								origin-left transform rounded-md
-								{activeSection === section.toLowerCase() ||
-								(section === 'PROJECTS' && isProjectsRoute)
-									? 'scale-x-100'
-									: 'scale-x-0 group-hover:scale-x-100'}"
-							>
-							</span>
-							<!-- Active indicator -->
-							<span
-								class="absolute left-0 top-1/2 h-3/4 w-2 -translate-y-1/2 rounded-r
-								bg-accentHard-alt4 transition-all duration-300
-								{activeSection === section.toLowerCase() ||
-								(section === 'PROJECTS' && isProjectsRoute)
-									? 'scale-y-100 opacity-100'
-									: 'scale-y-0 opacity-0'}"
-							>
 							</span>
 						</a>
 					</li>
