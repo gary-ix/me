@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { browser } from '$app/environment'
+	import { goto } from '$app/navigation'
 	import { page } from '$app/stores'
 	import MobileLinks from '$lib/components/header/mobile-links.svelte'
 	import IconDarkMode from '$lib/components/ui/icons/icon-dark-mode.svelte'
@@ -17,12 +18,23 @@
 		}
 	}
 
-	function navigateOrScroll(event: MouseEvent, sectionId: string) {
+	async function navigateOrScroll(event: MouseEvent, sectionId: string) {
 		event.preventDefault()
-		const isHomePage = window.location.pathname === '/'
+		const isHomePage = $page.url.pathname === '/'
 
 		if (!isHomePage) {
-			window.location.href = '/'
+			await goto('/')
+
+			// Wait for the next tick to ensure the DOM has updated
+			await new Promise(resolve => {
+				return setTimeout(resolve, 0)
+			})
+
+			const section = document.getElementById(sectionId)
+
+			if (section) {
+				section.scrollIntoView({ behavior: 'smooth' })
+			}
 		} else {
 			const section = document.getElementById(sectionId)
 
@@ -55,14 +67,10 @@
 
 	let { children } = $props()
 	let activeSection = $state('home')
-	let onProjectsRoute = $derived($page.url.pathname.startsWith('/projects'))
+	let isProjectsRoute = $derived($page.url.pathname.startsWith('/projects'))
 	let isDarkMode = $state(
 		browser ? localStorage.getItem('darkMode') === 'true' : false
 	)
-
-	$effect(() => {
-		console.log(onProjectsRoute)
-	})
 </script>
 
 <div class="md:flex md:h-screen">
@@ -117,7 +125,7 @@
 				<li>
 					<a
 						class="relative text-foreground transition-all duration-300 hover:text-accentHard-alt4"
-						class:text-test={activeSection === 'projects' || onProjectsRoute}
+						class:text-test={activeSection === 'projects' || isProjectsRoute}
 						href="/#projects"
 						onclick={e => {
 							return navigateOrScroll(e, 'projects')
