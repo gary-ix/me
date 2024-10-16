@@ -42,14 +42,18 @@
 				section.scrollIntoView({ behavior: 'smooth' })
 			}
 		}
+
+		activeSection = sectionId
 	}
 
-	onMount(() => {
-		if (isDarkMode) {
-			document.documentElement.classList.add('dark')
+	let observer: IntersectionObserver
+
+	function setupObserver() {
+		if (observer) {
+			observer.disconnect()
 		}
 
-		const observer = new IntersectionObserver(
+		observer = new IntersectionObserver(
 			entries => {
 				entries.forEach(entry => {
 					if (entry.isIntersecting) {
@@ -59,14 +63,34 @@
 			},
 			{ threshold: 0.5 }
 		)
+		;['about', 'experience', 'projects'].forEach(id => {
+			const section = document.getElementById(id)
 
-		document.querySelectorAll('section[id]').forEach(section => {
-			observer.observe(section)
+			if (section) {
+				observer.observe(section)
+			}
+		})
+	}
+
+	onMount(() => {
+		if (isDarkMode) {
+			document.documentElement.classList.add('dark')
+		}
+
+		setupObserver()
+
+		return page.subscribe($page => {
+			if ($page.url.pathname === '/') {
+				// Re-setup the observer when returning to the home page
+				setTimeout(setupObserver, 0)
+			} else if ($page.url.pathname.startsWith('/projects')) {
+				activeSection = 'projects'
+			}
 		})
 	})
 
 	let { children } = $props()
-	let activeSection = $state('home')
+	let activeSection = $state('about')
 	let isProjectsRoute = $derived($page.url.pathname.startsWith('/projects'))
 	let isDarkMode = $state(
 		browser ? localStorage.getItem('darkMode') === 'true' : false
@@ -115,7 +139,7 @@
 					<a
 						class="relative text-foreground transition-all duration-300 hover:text-accentHard-alt4"
 						class:active-section={activeSection === 'about'}
-						class:font-bold={activeSection === 'about'}
+						class:text-test={activeSection === 'about'}
 						href="/#about"
 						onclick={e => {
 							return navigateOrScroll(e, 'about')
@@ -136,7 +160,7 @@
 					<a
 						class="relative text-foreground transition-all duration-300 hover:text-accentHard-alt4"
 						class:active-section={activeSection === 'experience'}
-						class:font-bold={activeSection === 'experience'}
+						class:text-test={activeSection === 'experience'}
 						href="/#experience"
 						onclick={e => {
 							return navigateOrScroll(e, 'experience')
