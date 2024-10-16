@@ -135,7 +135,7 @@
 				{/if}
 			</button>
 		</div>
-		<nav class="mt-4 md:mt-14">
+		<nav class="mt-4 md:mt-24">
 			<ul class="flex flex-col space-y-2">
 				{#each ['ABOUT', 'PROJECTS', 'EXPERIENCE'] as section}
 					<li>
@@ -148,26 +148,38 @@
 								return navigateOrScroll(e, section.toLowerCase())
 							}}
 						>
+							<!-- Text content -->
 							<span
-								class="relative z-10 transition-colors duration-300
+								class="relative z-10 transition-all duration-300
 								{activeSection === section.toLowerCase() ||
 								(section === 'PROJECTS' && isProjectsRoute)
-									? 'text-background'
-									: 'text-foreground group-hover:text-accentHard-alt4'}"
+									? 'translate-x-4 font-bold text-foreground'
+									: 'text-accentHard-alt3 group-hover:text-accentHard-alt4'}"
 							>
 								{section}
 							</span>
+							<!-- Background effect -->
 							<span
 								class="absolute inset-0 z-0 bg-accentHard-alt4 transition-all duration-300
 								{activeSection === section.toLowerCase() ||
 								(section === 'PROJECTS' && isProjectsRoute)
-									? 'opacity-100'
+									? 'scale-105 opacity-100'
 									: 'opacity-0 group-hover:opacity-20'}
 								origin-left transform rounded-md
 								{activeSection === section.toLowerCase() ||
 								(section === 'PROJECTS' && isProjectsRoute)
 									? 'scale-x-100'
 									: 'scale-x-0 group-hover:scale-x-100'}"
+							>
+							</span>
+							<!-- Active indicator -->
+							<span
+								class="absolute left-0 top-1/2 h-3/4 w-2 -translate-y-1/2 rounded-r
+								bg-accentHard-alt4 transition-all duration-300
+								{activeSection === section.toLowerCase() ||
+								(section === 'PROJECTS' && isProjectsRoute)
+									? 'scale-y-100 opacity-100'
+									: 'scale-y-0 opacity-0'}"
 							>
 							</span>
 						</a>
