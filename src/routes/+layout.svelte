@@ -98,17 +98,17 @@
 		<nav class="mt-4 md:mt-24">
 			<ul class="flex justify-around md:block md:space-y-2">
 				<li>
-					<a class="text-foreground hover:text-accentHard" href="#about"
+					<a class="text-foreground hover:text-accentHard" href="/#about"
 						>ABOUT</a
 					>
 				</li>
 				<li>
-					<a class="text-foreground hover:text-accentHard" href="#projects"
+					<a class="text-foreground hover:text-accentHard" href="/#projects"
 						>PROJECTS</a
 					>
 				</li>
 				<li>
-					<a class="text-foreground hover:text-accentHard" href="#contact"
+					<a class="text-foreground hover:text-accentHard" href="/#experience"
 						>EXPERIENCE</a
 					>
 				</li>
