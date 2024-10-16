@@ -25,7 +25,6 @@
 		if (!isHomePage) {
 			await goto('/')
 
-			// Wait for the next tick to ensure the DOM has updated
 			await new Promise(resolve => {
 				return setTimeout(resolve, 0)
 			})
