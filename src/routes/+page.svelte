@@ -86,7 +86,7 @@
 				description="Uses Youtube's PubSub API to subscribe to channel events. This
 				 implementation makes annoucement posts in Discord when a channel is live, or when a video is uploaded."
 				imageUrl="/image.png"
-				route="/projects/discord-market-bots"
+				route="/projects/youtube-notifications-to-discord"
 				tags={['Typescript', 'Firebase', 'Cloudflare', 'API', 'PubSub']}
 				title="Youtube Notifications to Discord"
 			/>
@@ -94,7 +94,7 @@
 			<ProjectCard
 				description="Freelance programming of over a thousand custom indicators...written in a variety of languages."
 				imageUrl="/image.png"
-				route="/projects/indicators"
+				route="/projects/trading-indicators"
 				tags={['Pinescript', 'Python', 'Thinkscript', 'C++', 'TS-EasyLanguage']}
 				title="Trading Indicators"
 			/>
