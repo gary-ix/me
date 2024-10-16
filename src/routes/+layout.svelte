@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { browser } from '$app/environment'
+	import MobileLinks from '$lib/components/header/mobile-links.svelte'
 	import IconDarkMode from '$lib/components/ui/icons/icon-dark-mode.svelte'
-	import IconHamburger from '$lib/components/ui/icons/icon-hamburger.svelte'
 	import IconLightMode from '$lib/components/ui/icons/icon-light-mode.svelte'
 	import { onMount } from 'svelte'
 
@@ -31,10 +31,6 @@
 		}
 	}
 
-	function toggleMenu() {
-		isMobileMenuOpen = !isMobileMenuOpen
-	}
-
 	onMount(() => {
 		if (isDarkMode) {
 			document.documentElement.classList.add('dark')
@@ -61,133 +57,83 @@
 	let isDarkMode = $state(
 		browser ? localStorage.getItem('darkMode') === 'true' : false
 	)
-	let isMobileMenuOpen = $state(false)
-	const linkClasses = 'text-foreground hover:text-foreground pl-4'
 </script>
 
-<header
-	class="shadow-background-end fixed left-0 right-0 top-0 z-50 bg-background shadow-lg"
->
-	<nav class="container mx-auto flex items-center justify-between px-4 py-3">
-		<div class="logo pl-2">
-			<img alt="Logo" class="h-10 rounded-md" src="/favicon.png" />
-		</div>
-		<div class="flex items-center md:hidden">
-			<button class="pl-4 text-2xl text-foreground" onclick={toggleMenu}>
-				<IconHamburger />
+<div class="md:flex md:h-screen">
+	<div class="bg-accentHard p-4 md:flex md:w-2/5 md:flex-col md:p-16">
+		<div class="flex items-center justify-between md:mb-8 md:block">
+			<div>
+				<a
+					class="cursor-pointer"
+					href="/"
+					onclick={() => {
+						return window.scrollTo(0, 0)
+					}}
+				>
+					<h1 class="text-2xl font-bold text-foreground md:mb-4 md:text-4xl">
+						Gary
+					</h1>
+					<p class="md:text-md py-2 text-xl text-foreground md:mb-6 md:block">
+						Full-Stack Developer
+					</p>
+					<p class="md:text-md text-md py-0 text-foreground-alt1 md:py-0">
+						I build tools that empower traders to make informed decisions and
+						optimize their trading workflow.
+					</p>
+				</a>
+			</div>
+			<button
+				aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+				class="mx-4 flex h-10 w-10 items-center justify-center rounded-full bg-transparent
+				 text-foreground transition-colors hover:bg-foreground-inverse md:absolute md:right-4 md:top-4"
+				onclick={toggleDarkMode}
+			>
+				{#if isDarkMode}
+					<IconDarkMode />
+				{:else}
+					<IconLightMode />
+				{/if}
 			</button>
 		</div>
-		<ul class="hidden items-center space-x-6 pr-8 md:flex">
-			<li>
-				<a
-					class={`${linkClasses} ${activeSection === 'home' ? 'font-bold text-foreground' : ''}`}
-					href="/"
-					onclick={e => {
-						return navigateOrScroll(e, 'home')
-					}}>Home</a
-				>
-			</li>
-			<li>
-				<a
-					class={`${linkClasses} ${activeSection === 'about' ? 'font-bold text-foreground' : ''}`}
-					href="/#about"
-					onclick={e => {
-						return navigateOrScroll(e, 'about')
-					}}>About</a
-				>
-			</li>
-			<li>
-				<a
-					class={`${linkClasses} ${activeSection === 'projects' ? 'font-bold text-foreground' : ''}`}
-					href="/#projects"
-					onclick={e => {
-						return navigateOrScroll(e, 'projects')
-					}}>Projects</a
-				>
-			</li>
-			<li>
-				<a
-					class={`${linkClasses} ${activeSection === 'contact' ? 'font-bold text-foreground' : ''}`}
-					href="/#contact"
-					onclick={e => {
-						return navigateOrScroll(e, 'contact')
-					}}>Contact</a
-				>
-			</li>
-			<li class="flex items-center">
-				<button class={`${linkClasses} text-2xl`} onclick={toggleDarkMode}>
-					{#if isDarkMode}
-						<IconDarkMode />
-					{:else}
-						<IconLightMode />
-					{/if}
-				</button>
-			</li>
-		</ul>
-	</nav>
-
-	{#if isMobileMenuOpen}
-		<div class="bg-background shadow-lg md:hidden">
-			<ul class="flex flex-col items-center space-y-4 py-4">
+		<nav class="mt-4 md:mt-24">
+			<ul class="flex justify-around md:block md:space-y-2">
 				<li>
-					<a
-						class={`${linkClasses} ${activeSection === 'home' ? 'font-bold text-foreground' : ''}`}
-						href="/"
-						onclick={e => {
-							toggleMenu()
-
-							return navigateOrScroll(e, 'home')
-						}}>Home</a
+					<a class="text-foreground hover:text-accentHard" href="#about"
+						>ABOUT</a
 					>
 				</li>
 				<li>
-					<a
-						class={`${linkClasses} ${activeSection === 'about' ? 'font-bold text-foreground' : ''}`}
-						href="/#about"
-						onclick={e => {
-							toggleMenu()
-
-							return navigateOrScroll(e, 'about')
-						}}>About</a
+					<a class="text-foreground hover:text-accentHard" href="#projects"
+						>PROJECTS</a
 					>
 				</li>
 				<li>
-					<a
-						class={`${linkClasses} ${activeSection === 'projects' ? 'font-bold text-foreground' : ''}`}
-						href="/#projects"
-						onclick={e => {
-							toggleMenu()
-
-							return navigateOrScroll(e, 'projects')
-						}}>Projects</a
+					<a class="text-foreground hover:text-accentHard" href="#contact"
+						>EXPERIENCE</a
 					>
-				</li>
-				<li>
-					<a
-						class={`${linkClasses} ${activeSection === 'contact' ? 'font-bold text-foreground' : ''}`}
-						href="/#contact"
-						onclick={e => {
-							toggleMenu()
-
-							return navigateOrScroll(e, 'contact')
-						}}>Contact</a
-					>
-				</li>
-				<li>
-					<button
-						class={`${linkClasses} flex items-center`}
-						onclick={toggleDarkMode}
-					>
-						{#if isDarkMode}
-							<IconDarkMode />
-						{:else}
-							<IconLightMode />
-						{/if}
-					</button>
 				</li>
 			</ul>
-		</div>
-	{/if}
-</header>
+		</nav>
 
-{@render children()}
+		<div class="hidden md:mt-auto md:flex md:space-x-4">
+			<MobileLinks />
+		</div>
+	</div>
+
+	<div class="md:w-3/5 md:overflow-y-auto">
+		<div class="p-4 md:p-8">
+			{@render children()}
+		</div>
+
+		<!-- Footer Section -->
+		<section class="mb-16" id="footer">
+			<p class="text-center text-sm text-accentSubtle-alt2">
+				Built with <span class="font-bold text-accentHard-alt3">Sveltekit</span
+				>,
+				<span class="font-bold text-accentHard-alt3">TailwindCSS</span>, and
+				deployed on
+				<span class="font-bold text-accentHard-alt3">Cloudflare</span> pages.
+			</p>
+		</section>
+	</div>
+</div>
