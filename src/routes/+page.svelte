@@ -4,7 +4,7 @@
 
 <div class="w-full px-10">
 	<!-- About Section -->
-	<section class="mb-44 mt-8" id="about">
+	<section class="mb-36 pt-10" id="about">
 		<h2 class="mb-8 text-3xl font-bold text-foreground">
 			About <span class="ml-2">📖</span>
 		</h2>
@@ -31,7 +31,7 @@
 	</section>
 
 	<!-- Projects Section -->
-	<section class="mb-60" id="projects">
+	<section class="mb-40 pt-10" id="projects">
 		<h2 class="mb-8 text-3xl font-bold text-foreground">
 			Projects <span class="ml-2">🛠️</span>
 		</h2>
@@ -68,7 +68,7 @@
 
 	<!-- Experience Section -->
 	<!-- TODO: put an interactive chart here -->
-	<section class="mb-16" id="experience">
+	<section class="mb-16 pt-10" id="experience">
 		<h2 class="mb-8 text-3xl font-bold text-foreground">
 			Experience <span class="ml-2">🧑🏻‍💻</span>
 		</h2>
