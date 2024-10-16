@@ -205,6 +205,14 @@
 				deployed on
 				<span class="font-bold text-accentHard-alt3">Cloudflare</span> pages.
 			</p>
+
+			<div class="flex justify-center pt-2">
+				<a href="/extras">
+					<span class="text-center text-sm font-bold text-accentHard-alt3">
+						👀 Extras
+					</span>
+				</a>
+			</div>
 		</section>
 	</div>
 </div>

@@ -1,32 +1,48 @@
 <script lang="ts">
-	let {
-		title,
-		buttonText = 'Learn More',
-		description,
-		imageUrl = undefined,
-		route
-	} = $props<{
+	let { title, description, imageUrl, route, tags } = $props<{
 		title: string
 		description: string
 		route: string
-		buttonText?: string
 		imageUrl?: string
+		tags?: string[]
 	}>()
 </script>
 
-<div class="overflow-hidden rounded-lg bg-background shadow-md">
-	{#if imageUrl}
-		<img alt={title} class="h-48 w-full object-cover" src={imageUrl} />
-	{/if}
-	<div class="p-6">
-		<h3 class="mb-2 text-xl font-semibold text-foreground">{title}</h3>
-		<p class="mb-4 text-foreground-alt1">{description}</p>
-		<a
-			class="inline-block rounded bg-accentHard px-4 py-2 text-foreground
-       transition duration-300 hover:bg-accentHard-alt1"
-			href={route}
-		>
-			{buttonText}
-		</a>
+<a
+	class="group overflow-hidden rounded-lg bg-background shadow-md transition-all duration-100 hover:bg-white/10"
+	href={route}
+>
+	<div class="flex">
+		<div class="w-1/3 p-3 pt-6">
+			{#if imageUrl}
+				<div class="aspect-rectangle w-full overflow-hidden rounded-3xl">
+					<img
+						alt={title}
+						class="h-full w-full object-cover transition-transform duration-200 group-hover:scale-105
+						 group-hover:border-2 group-hover:border-accentHard-alt3"
+						src={imageUrl}
+					/>
+				</div>
+			{/if}
+		</div>
+		<div class="w-2/3 p-6">
+			<h3
+				class="mb-2 text-xl font-semibold text-foreground transition-colors
+				 group-hover:font-bold group-hover:text-accentHard-alt3"
+			>
+				{title}
+			</h3>
+			<p class="mb-4 text-foreground-alt1">{description}</p>
+		</div>
 	</div>
-</div>
+
+	{#if tags && tags.length > 0}
+		<div class="flex flex-wrap gap-2 p-4 pb-8">
+			{#each tags as tag}
+				<span class="rounded-lg bg-accentHard-alt1 px-3 py-1 text-sm text-white"
+					>{tag}</span
+				>
+			{/each}
+		</div>
+	{/if}
+</a>
