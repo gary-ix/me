@@ -158,15 +158,15 @@
 							>
 								{activeSection === section.toLowerCase() ||
 								(section === 'PROJECTS' && isProjectsRoute)
-									? ''
+									? '📈'
 									: ''}
 							</span>
 							<!-- Text content -->
 							<span
-								class="relative z-10 transition-all duration-300"
+								class="relative z-10 transition-all duration-300 group-hover:pl-3 group-hover:text-foreground-alt1"
 								class:font-bold={activeSection === section.toLowerCase() ||
 									(section === 'PROJECTS' && isProjectsRoute)}
-								class:pl-4={activeSection === section.toLowerCase() ||
+								class:pl-3={activeSection === section.toLowerCase() ||
 									(section === 'PROJECTS' && isProjectsRoute)}
 								class:text-accentHard-alt3={activeSection !==
 									section.toLowerCase() &&
