@@ -136,11 +136,14 @@
 			</button>
 		</div>
 		<nav class="mt-4 md:mt-24">
-			<ul class="flex flex-row justify-around md:flex-col md:space-y-2">
+			<ul
+				class="flex flex-row justify-between px-0 md:flex-col md:space-y-2 md:px-0"
+			>
 				{#each ['ABOUT', 'PROJECTS', 'EXPERIENCE'] as section}
 					<li class="flex-1 md:flex-none">
 						<a
-							class="group relative block px-2 py-2 text-center text-sm font-medium transition-all duration-300 md:text-left md:text-lg"
+							class="group relative block py-1.5 text-center text-sm font-medium transition-all
+							duration-300 md:px-2 md:text-left md:text-lg"
 							class:active-section={activeSection === section.toLowerCase() ||
 								(section === 'PROJECTS' && isProjectsRoute)}
 							href={`/#${section.toLowerCase()}`}
@@ -163,18 +166,16 @@
 							</span>
 							<!-- Text content -->
 							<span
-								class="relative z-10 transition-all duration-300 group-hover:text-foreground-alt1"
-								class:font-bold={activeSection === section.toLowerCase() ||
+								class="relative z-10 text-accentHard-alt3 transition-all duration-300 group-hover:text-foreground-alt1"
+								class:md:font-bold={activeSection === section.toLowerCase() ||
 									(section === 'PROJECTS' && isProjectsRoute)}
 								class:md:pl-6={activeSection === section.toLowerCase() ||
 									(section === 'PROJECTS' && isProjectsRoute)}
-								class:text-accentHard-alt3={activeSection !==
-									section.toLowerCase() &&
-									!(section === 'PROJECTS' && isProjectsRoute)}
-								class:text-foreground={activeSection ===
+								class:md:translate-x-4={activeSection ===
 									section.toLowerCase() ||
 									(section === 'PROJECTS' && isProjectsRoute)}
-								class:translate-x-4={activeSection === section.toLowerCase() ||
+								class:text-foreground={activeSection ===
+									section.toLowerCase() ||
 									(section === 'PROJECTS' && isProjectsRoute)}
 							>
 								{section}
