@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { browser } from '$app/environment'
+	import { page } from '$app/stores'
 	import MobileLinks from '$lib/components/header/mobile-links.svelte'
 	import IconDarkMode from '$lib/components/ui/icons/icon-dark-mode.svelte'
 	import IconLightMode from '$lib/components/ui/icons/icon-light-mode.svelte'
@@ -54,9 +55,14 @@
 
 	let { children } = $props()
 	let activeSection = $state('home')
+	let onProjectsRoute = $derived($page.url.pathname.startsWith('/projects'))
 	let isDarkMode = $state(
 		browser ? localStorage.getItem('darkMode') === 'true' : false
 	)
+
+	$effect(() => {
+		console.log(onProjectsRoute)
+	})
 </script>
 
 <div class="md:flex md:h-screen">
@@ -98,18 +104,35 @@
 		<nav class="mt-4 md:mt-24">
 			<ul class="flex justify-around md:block md:space-y-2">
 				<li>
-					<a class="text-foreground hover:text-accentHard" href="/#about"
-						>ABOUT</a
+					<a
+						class="relative text-foreground transition-all duration-300 hover:text-accentHard-alt4"
+						class:active-section={activeSection === 'about'}
+						class:font-bold={activeSection === 'about'}
+						href="/#about"
+						onclick={e => {
+							return navigateOrScroll(e, 'about')
+						}}>ABOUT</a
 					>
 				</li>
 				<li>
-					<a class="text-foreground hover:text-accentHard" href="/#projects"
-						>PROJECTS</a
+					<a
+						class="relative text-foreground transition-all duration-300 hover:text-accentHard-alt4"
+						class:text-test={activeSection === 'projects' || onProjectsRoute}
+						href="/#projects"
+						onclick={e => {
+							return navigateOrScroll(e, 'projects')
+						}}>PROJECTS</a
 					>
 				</li>
 				<li>
-					<a class="text-foreground hover:text-accentHard" href="/#experience"
-						>EXPERIENCE</a
+					<a
+						class="relative text-foreground transition-all duration-300 hover:text-accentHard-alt4"
+						class:active-section={activeSection === 'experience'}
+						class:font-bold={activeSection === 'experience'}
+						href="/#experience"
+						onclick={e => {
+							return navigateOrScroll(e, 'experience')
+						}}>EXPERIENCE</a
 					>
 				</li>
 			</ul>
