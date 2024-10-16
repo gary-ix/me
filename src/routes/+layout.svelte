@@ -63,7 +63,10 @@
 			},
 			{ threshold: 0.5 }
 		)
-		;['about', 'experience', 'projects'].forEach(id => {
+
+		const sections = ['about', 'experience', 'projects']
+
+		sections.forEach(id => {
 			const section = document.getElementById(id)
 
 			if (section) {
