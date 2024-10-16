@@ -135,40 +135,44 @@
 				{/if}
 			</button>
 		</div>
-		<nav class="mt-4 md:mt-24">
-			<ul class="flex justify-around md:block md:space-y-2">
-				<li>
-					<a
-						class="relative text-foreground transition-all duration-300 hover:text-accentHard-alt4"
-						class:active-section={activeSection === 'about'}
-						class:text-test={activeSection === 'about'}
-						href="/#about"
-						onclick={e => {
-							return navigateOrScroll(e, 'about')
-						}}>ABOUT</a
-					>
-				</li>
-				<li>
-					<a
-						class="relative text-foreground transition-all duration-300 hover:text-accentHard-alt4"
-						class:text-test={activeSection === 'projects' || isProjectsRoute}
-						href="/#projects"
-						onclick={e => {
-							return navigateOrScroll(e, 'projects')
-						}}>PROJECTS</a
-					>
-				</li>
-				<li>
-					<a
-						class="relative text-foreground transition-all duration-300 hover:text-accentHard-alt4"
-						class:active-section={activeSection === 'experience'}
-						class:text-test={activeSection === 'experience'}
-						href="/#experience"
-						onclick={e => {
-							return navigateOrScroll(e, 'experience')
-						}}>EXPERIENCE</a
-					>
-				</li>
+		<nav class="mt-4 md:mt-14">
+			<ul class="flex flex-col space-y-2">
+				{#each ['ABOUT', 'PROJECTS', 'EXPERIENCE'] as section}
+					<li>
+						<a
+							class="group relative block px-4 py-2 text-lg font-medium transition-all duration-300"
+							class:active-section={activeSection === section.toLowerCase() ||
+								(section === 'PROJECTS' && isProjectsRoute)}
+							href={`/#${section.toLowerCase()}`}
+							onclick={e => {
+								return navigateOrScroll(e, section.toLowerCase())
+							}}
+						>
+							<span
+								class="relative z-10 transition-colors duration-300
+								{activeSection === section.toLowerCase() ||
+								(section === 'PROJECTS' && isProjectsRoute)
+									? 'text-background'
+									: 'text-foreground group-hover:text-accentHard-alt4'}"
+							>
+								{section}
+							</span>
+							<span
+								class="absolute inset-0 z-0 bg-accentHard-alt4 transition-all duration-300
+								{activeSection === section.toLowerCase() ||
+								(section === 'PROJECTS' && isProjectsRoute)
+									? 'opacity-100'
+									: 'opacity-0 group-hover:opacity-20'}
+								origin-left transform rounded-md
+								{activeSection === section.toLowerCase() ||
+								(section === 'PROJECTS' && isProjectsRoute)
+									? 'scale-x-100'
+									: 'scale-x-0 group-hover:scale-x-100'}"
+							>
+							</span>
+						</a>
+					</li>
+				{/each}
 			</ul>
 		</nav>
 
