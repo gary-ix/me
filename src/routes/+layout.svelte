@@ -139,7 +139,7 @@
 			<ul
 				class="flex flex-row justify-between px-0 md:flex-col md:space-y-2 md:px-0"
 			>
-				{#each ['ABOUT', 'PROJECTS', 'EXPERIENCE'] as section}
+				{#each ['ABOUT', 'EXPERIENCE', 'PROJECTS	'] as section}
 					<li class="flex-1 md:flex-none">
 						<a
 							class="group relative block py-1.5 text-center text-sm font-medium transition-all
