@@ -9,7 +9,7 @@
 </script>
 
 <a
-	class="group overflow-hidden rounded-lg bg-background shadow-md transition-all duration-100 hover:bg-white/10"
+	class="group overflow-hidden rounded-lg bg-background transition-all duration-100 hover:bg-white/10"
 	href={route}
 >
 	<div class="flex flex-col md:flex-row">
@@ -18,8 +18,8 @@
 				<div class="aspect-rectangle w-full overflow-hidden rounded-3xl">
 					<img
 						alt={title}
-						class="h-full w-full object-cover transition-transform duration-200 group-hover:scale-105
-						 group-hover:border-2 group-hover:border-accentHard-alt3"
+						class="h-full w-full rounded-3xl object-cover transition-transform
+						 duration-200 group-hover:border-2 group-hover:border-accentHard-alt3"
 						src={imageUrl}
 					/>
 				</div>
