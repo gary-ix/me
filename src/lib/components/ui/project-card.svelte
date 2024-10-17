@@ -12,8 +12,8 @@
 	class="group overflow-hidden rounded-lg bg-background shadow-md transition-all duration-100 hover:bg-white/10"
 	href={route}
 >
-	<div class="flex">
-		<div class="w-1/3 p-3 pt-6">
+	<div class="flex flex-col md:flex-row">
+		<div class="w-full p-3 pt-6 md:w-1/3">
 			{#if imageUrl}
 				<div class="aspect-rectangle w-full overflow-hidden rounded-3xl">
 					<img
@@ -25,7 +25,7 @@
 				</div>
 			{/if}
 		</div>
-		<div class="w-2/3 p-6">
+		<div class="w-full p-6 md:w-2/3">
 			<h3
 				class="mb-2 text-xl font-semibold text-foreground transition-colors
 				 group-hover:font-bold group-hover:text-accentHard-alt3"
