@@ -21,6 +21,10 @@ export default {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out'
 			},
+			backgroundImage: {
+				spotlight:
+					'radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), var(--accentHard-alt1), transparent 40%)'
+			},
 			borderRadius: {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',

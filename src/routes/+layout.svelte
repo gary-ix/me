@@ -1,3 +1,10 @@
+<style>
+	:global(body) {
+		--mouse-x: 0px;
+		--mouse-y: 0px;
+	}
+</style>
+
 <script lang="ts">
 	import { browser } from '$app/environment'
 	import { goto } from '$app/navigation'
@@ -97,9 +104,34 @@
 	let isDarkMode = $state(
 		browser ? localStorage.getItem('darkMode') === 'true' : false
 	)
+
+	let spotlight: HTMLElement
+
+	function handleMouseMove(event: MouseEvent) {
+		if (!spotlight) return
+
+		const x = event.clientX
+		const y = event.clientY
+
+		spotlight.style.setProperty('--mouse-x', `${x}px`)
+		spotlight.style.setProperty('--mouse-y', `${y}px`)
+	}
+
+	onMount(() => {
+		document.addEventListener('mousemove', handleMouseMove)
+
+		return () => {
+			document.removeEventListener('mousemove', handleMouseMove)
+		}
+	})
 </script>
 
-<div class="md:flex md:h-screen">
+<div class="relative md:flex md:h-screen">
+	<div
+		bind:this={spotlight}
+		class="bg-spotlight dark:bg-spotlight-dark pointer-events-none fixed inset-0 z-50 opacity-30"
+	></div>
+
 	<div class="bg-accentHard p-4 md:flex md:w-2/5 md:flex-col md:p-16">
 		<div class="flex items-center justify-between md:mb-8 md:block">
 			<div>
