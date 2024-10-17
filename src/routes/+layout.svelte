@@ -29,24 +29,18 @@
 		event.preventDefault()
 		const isHomePage = $page.url.pathname === '/'
 
-		if (!isHomePage) {
+		if (!isHomePage || sectionId === 'projects') {
 			await goto('/')
 
 			await new Promise(resolve => {
-				return setTimeout(resolve, 0)
+				return setTimeout(resolve, 100)
 			})
+		}
 
-			const section = document.getElementById(sectionId)
+		const section = document.getElementById(sectionId)
 
-			if (section) {
-				section.scrollIntoView({ behavior: 'smooth' })
-			}
-		} else {
-			const section = document.getElementById(sectionId)
-
-			if (section) {
-				section.scrollIntoView({ behavior: 'smooth' })
-			}
+		if (section) {
+			section.scrollIntoView({ behavior: 'smooth' })
 		}
 
 		activeSection = sectionId
@@ -171,7 +165,7 @@
 			<ul
 				class="flex flex-row justify-between px-0 md:flex-col md:space-y-2 md:px-0"
 			>
-				{#each ['ABOUT', 'EXPERIENCE', 'PROJECTS	'] as section}
+				{#each ['ABOUT', 'EXPERIENCE', 'PROJECTS'] as section}
 					<li class="flex-1 md:flex-none">
 						<a
 							class="group relative block py-1.5 text-center text-sm font-medium transition-all
