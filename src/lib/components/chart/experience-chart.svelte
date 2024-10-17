@@ -1,12 +1,3 @@
-<style>
-	.chart-container {
-		width: 100%;
-		max-width: 800px;
-		aspect-ratio: 16 / 12;
-		margin: 0 auto;
-	}
-</style>
-
 <script lang="ts">
 	import Chart from 'chart.js/auto'
 	import { onMount } from 'svelte'
