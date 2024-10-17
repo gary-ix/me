@@ -1,4 +1,5 @@
 <script lang="ts">
+	import ExperienceChart from '$lib/components/chart/experience-chart.svelte'
 	import ProjectCard from '$lib/components/ui/project-card.svelte'
 </script>
 
@@ -28,6 +29,14 @@
 				playing golf (looking for ball in rough), or laughing at my own jokes.
 			</p>
 		</div>
+	</section>
+
+	<!-- Experience Section -->
+	<section class="mb-32 pt-10" id="experience">
+		<h2 class="mb-8 text-3xl font-bold text-foreground">
+			Experience <span class="ml-2">📈</span>
+		</h2>
+		<ExperienceChart />
 	</section>
 
 	<!-- Projects Section -->
@@ -111,34 +120,6 @@
 			>
 				+ More on GitHub
 			</a>
-		</div>
-	</section>
-
-	<!-- Experience Section -->
-	<!-- TODO: put an interactive chart here -->
-	<section class="mb-16 pt-10" id="experience">
-		<h2 class="mb-8 text-3xl font-bold text-foreground">
-			Experience <span class="ml-2">🧑🏻‍💻</span>
-		</h2>
-		<div class="text-md space-y-6 text-foreground-alt1">
-			<p class="leading-relaxed">
-				It all started being a curious child who liked to tinker with tech and
-				an entrepreneurial spirit. Today, I'm a full-stack developer with over 7
-				years of experience.
-			</p>
-			<p class="leading-relaxed">
-				Today my main focus is building the best retail futures trading
-				platform, Tradester, which I co-founded. I most enjoy making elegant &
-				efficient UI and UX, but my OCD motivates me to continously iterate for
-				optimized performance. In my free time I build trading tools for public
-				& personal use, and dabble in whatever re-ignites that childhood
-				curiosity.
-			</p>
-			<p class="leading-relaxed">
-				When I'm not programming, I'm touching grass. That involves spending
-				time with family and friends, working on my fitness (chad devs only),
-				playing golf (looking for ball in rough), or laughing at my own jokes.
-			</p>
 		</div>
 	</section>
 </div>
