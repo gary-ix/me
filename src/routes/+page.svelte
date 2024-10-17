@@ -2,7 +2,7 @@
 	import ProjectCard from '$lib/components/ui/project-card.svelte'
 </script>
 
-<div class="w-full px-10">
+<div class="w-full px-3 md:px-10">
 	<!-- About Section -->
 	<section class="mb-36 pt-10" id="about">
 		<h2 class="mb-8 text-3xl font-bold text-foreground">
