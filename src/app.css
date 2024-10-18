@@ -10,6 +10,8 @@
 		--destructive: hsl(0, 85%, 36%);
 		--warning: hsl(46, 100%, 59%);
 
+		--spotlightColor: hsl(0, 0%, 97%);
+
 		--background-start: hsl(37, 81%, 87%);
 		--background-accent: #d0b9a1;
 
@@ -33,6 +35,8 @@
 		--test: hsl(297, 100%, 50%);
 		--destructive: hsl(0, 74%, 49%);
 		--warning: hsl(46, 100%, 59%);
+
+		--spotlightColor: hsl(244, 91%, 65%);
 
 		--background-start: hsl(240, 4%, 11%);
 		--background-accent: hsl(0, 0%, 0%);

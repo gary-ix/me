@@ -123,10 +123,12 @@
 <div class="relative md:flex md:h-screen">
 	<div
 		bind:this={spotlight}
-		class="bg-spotlight dark:bg-spotlight-dark pointer-events-none fixed inset-0 z-50 opacity-30"
+		class="pointer-events-none fixed inset-0 z-50 bg-spotlight opacity-30"
 	></div>
 
-	<div class="bg-accentHard p-4 md:flex md:w-2/5 md:flex-col md:p-16">
+	<div
+		class="bg-background-start p-4 md:flex md:w-2/5 md:flex-col md:px-24 md:py-16"
+	>
 		<div class="flex items-center justify-between md:mb-8 md:block">
 			<div>
 				<a

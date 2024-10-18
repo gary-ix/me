@@ -23,7 +23,7 @@ export default {
 			},
 			backgroundImage: {
 				spotlight:
-					'radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), var(--accentHard-alt1), transparent 40%)'
+					'radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), var(--spotlightColor), transparent 40%)'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -55,7 +55,6 @@ export default {
 					foreground: 'var(--foreground)',
 					start: 'var(--background-start)'
 				},
-
 				border: 'var(--accentSubtle-alt2)',
 
 				card: {
@@ -73,6 +72,7 @@ export default {
 					DEFAULT: 'var(--foreground)',
 					inverse: 'var(--foreground-inverse)'
 				},
+
 				input: 'var(--background-start)',
 				loss: {
 					DEFAULT: 'var(--loss-start)',
@@ -93,12 +93,13 @@ export default {
 					DEFAULT: 'var(--background-start)',
 					foreground: 'var(--foreground)'
 				},
-
 				ring: 'var(--accentSubtle-alt2)',
+
 				secondary: {
 					DEFAULT: 'var(--accentSubtle-alt2)',
 					foreground: 'var(--foreground)'
 				},
+				spotlightColor: 'var(--spotlightColor)',
 				test: 'var(--test)',
 				warning: {
 					DEFAULT: 'var(--warning)',
