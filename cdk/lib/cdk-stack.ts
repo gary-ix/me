@@ -27,19 +27,44 @@ export class CdkStack extends cdk.Stack {
       validation: acm.CertificateValidation.fromDns(),
     });
 
+    // Create a CloudFront Function for redirection
+    const redirectFunction = new cloudfront.Function(this, 'RedirectFunction', {
+      code: cloudfront.FunctionCode.fromInline(`
+    function handler(event) {
+      var request = event.request;
+      var uri = request.uri;
+      var host = request.headers.host.value;
+      if (host === 'www.theprogrammertest.com') {
+        return {
+          statusCode: 301,
+          statusDescription: 'Moved Permanently',
+          headers: {
+            location: { value: 'https://theprogrammertest.com' + uri }
+          }
+        };
+      }
+      return request;
+    }
+  `),
+    });
+
     // Create a CloudFront distribution with ACM certificate
     const distribution = new cloudfront.Distribution(this, 'Distribution', {
       certificate: certificate, // Use the ACM certificate
       defaultBehavior: {
+        functionAssociations: [{
+          eventType: cloudfront.FunctionEventType.VIEWER_REQUEST,
+          function: redirectFunction,
+        }],
         origin: new origins.OriginGroup({
           fallbackOrigin: origins.S3BucketOrigin.withOriginAccessControl(websiteBucket),
           fallbackStatusCodes: [404],
           primaryOrigin: origins.S3BucketOrigin.withOriginAccessControl(websiteBucket),
         }),
-        viewerProtocolPolicy: cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS, // Enforce HTTPS
+        viewerProtocolPolicy: cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS, // Enforce HTTPS,
       },
       defaultRootObject: 'index.html',
-      domainNames: ['theprogrammertest.com'],
+      domainNames: ['theprogrammertest.com', 'www.theprogrammertest.com'], // Add both domains
       errorResponses: [
         {
           httpStatus: 404,
@@ -63,24 +88,16 @@ export class CdkStack extends cdk.Stack {
       value: distribution.domainName,
     });
 
-    // Create an S3 bucket for www redirection
-    const redirectBucket = new s3.Bucket(this, 'RedirectBucket', {
-      bucketName: 'www.theprogrammertest.com',
-      websiteRedirect: {
-        hostName: 'theprogrammertest.com',
-        protocol: s3.RedirectProtocol.HTTPS,
-      },
-    });
-
     // Retrieve the hosted zone
     const hostedZone = route53.HostedZone.fromLookup(this, 'HostedZone', {
       domainName: 'theprogrammertest.com',
     });
 
-    // Update DNS settings in Route 53
-    new route53.ARecord(this, 'WWWRedirectRecord', {
+    // Update DNS settings in Route 53 for www
+    new route53.ARecord(this, 'WWWCloudFrontRecord', {
+      deleteExisting: true,
       recordName: 'www',
-      target: route53.RecordTarget.fromAlias(new targets.BucketWebsiteTarget(redirectBucket)),
+      target: route53.RecordTarget.fromAlias(new targets.CloudFrontTarget(distribution)),
       zone: hostedZone,
     });
   }
