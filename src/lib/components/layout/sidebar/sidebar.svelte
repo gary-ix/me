@@ -2,29 +2,96 @@
 	import { goto } from '$app/navigation'
 	import { page } from '$app/stores'
 	import SocialLinks from '$lib/components/layout/sidebar/icon-links.svelte'
-	import { onMount } from 'svelte'
+	import { onDestroy, onMount } from 'svelte'
+	import { tick } from 'svelte'
 
 	import ThemeMode from '../themeMode/theme-mode.svelte'
 
-	let observer: IntersectionObserver
+	let activeSection = 'about'
+	let unsubscribe: () => void
 
-	// // Handle navigation and smooth scrolling to sections
-	// async function navigateOrScroll(event: MouseEvent, sectionId: string) {
-	// 	// ... existing code ...
-	// }
+	// Helper: check if current route is a projects route
+	// $: isProjectsRoute = $page.url.pathname.startsWith('/projects')
+	let isProjectsRoute = $page.url.pathname.startsWith('/projects')
 
-	// // Setup intersection observer to track active sections during scroll
-	// function setupObserver() {
-	// 	// ... existing code ...
-	// }
+	// Navigation and smooth scroll
+	async function navigateOrScroll(event: MouseEvent, sectionId: string) {
+		event.preventDefault()
+		const isHome = $page.url.pathname === '/'
 
-	// // Initialize observers and handle page changes
-	// onMount(() => {
-	// 	// ... existing code ...
-	// })
+		const mobileOffset = 175 // px, adjust as needed
+		const desktopOffset = 50 // px, adjust as needed
 
-	let activeSection = $state('about')
-	let isProjectsRoute = $derived($page.url.pathname.startsWith('/projects'))
+		function getOffset() {
+			return window.innerWidth < 768 ? mobileOffset : desktopOffset
+		}
+
+		async function scrollToSection() {
+			const el = document.getElementById(sectionId)
+
+			if (el) {
+				const y = el.getBoundingClientRect().top + window.scrollY - getOffset()
+				window.scrollTo({ behavior: 'smooth', top: y })
+				activeSection = sectionId
+			}
+		}
+
+		if (isHome) {
+			scrollToSection()
+		} else {
+			await goto(`/#${sectionId}`)
+			await tick()
+			scrollToSection()
+		}
+	}
+
+	// Intersection Observer for active section
+	function setupObserver() {
+		const sectionIds = ['about', 'skills', 'projects']
+
+		const sections = sectionIds
+			.map(id => {
+				return document.getElementById(id)
+			})
+			.filter(Boolean) as HTMLElement[]
+
+		if (!sections.length) return
+
+		const observer = new IntersectionObserver(
+			entries => {
+				entries.forEach(entry => {
+					if (entry.isIntersecting) {
+						activeSection = entry.target.id
+					}
+				})
+			},
+			{
+				root: null,
+				rootMargin: '0px 0px -60% 0px', // Trigger when section is 40% from top
+				threshold: 0.2
+			}
+		)
+
+		sections.forEach(section => {
+			return observer.observe(section)
+		})
+
+		return () => {
+			return observer.disconnect()
+		}
+	}
+
+	onMount(() => {
+		// Only observe on homepage
+		if ($page.url.pathname === '/') {
+			const cleanup = setupObserver()
+			unsubscribe = cleanup || (() => {})
+		}
+	})
+
+	onDestroy(() => {
+		if (unsubscribe) unsubscribe()
+	})
 </script>
 
 <!-- Theme Toggle Button - Fixed in top right -->
