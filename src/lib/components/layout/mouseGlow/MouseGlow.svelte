@@ -11,11 +11,10 @@
 	let spotlight: HTMLElement | null = null
 
 	function isMobile() {
-		return window.innerWidth < 1024
+		return window.innerWidth <= 768
 	}
 
 	function centerSpotlight() {
-		console.info('resize', isMobile())
 		if (!isMobile()) return
 		if (!spotlight) return
 		const x = window.innerWidth / 2
@@ -25,7 +24,6 @@
 	}
 
 	function handleMouseMove(event: MouseEvent) {
-		console.info('mouse move')
 		if (isMobile()) return
 		if (!spotlight) return
 		spotlight.style.setProperty('--mouse-x', `${event.clientX}px`)
@@ -48,5 +46,5 @@
 
 <div
 	bind:this={spotlight}
-	class="pointer-events-none fixed inset-0 z-50 bg-spotlight opacity-15 lg:opacity-25"
+	class="pointer-events-none fixed inset-0 z-50 bg-spotlight opacity-15 md:opacity-25"
 ></div>
