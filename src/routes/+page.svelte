@@ -102,7 +102,7 @@
 		<div class="flex flex-col space-y-12">
 			<ProjectCard
 				description="Is this really needed? Look around."
-				imageUrl="/image.png"
+				imageUrl="/site.png"
 				route="/"
 				tags={['Svelte', 'Tailwind', 'Cloudflare Pages', 'ESLint', 'Prettier']}
 				title="This Website"
