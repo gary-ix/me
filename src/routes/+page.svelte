@@ -114,7 +114,7 @@
 				class="rounded-lg bg-transparent px-3
 				py-1 text-sm font-medium text-foreground-alt1
 				transition-colors hover:border hover:border-accentHard-alt1"
-				href="https://github.com/theprogrammergary"
+				href="https://github.com/gary-ix"
 				rel="noopener noreferrer"
 				target="_blank"
 			>

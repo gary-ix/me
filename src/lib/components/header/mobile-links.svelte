@@ -1,7 +1,7 @@
 <a
 	aria-label="GitHub"
 	class="rounded-full bg-background p-2 text-foreground transition-colors hover:bg-background-accent"
-	href="https://github.com/theprogrammergary"
+	href="https://github.com/gary-ix"
 	rel="noopener noreferrer"
 	target="_blank"
 >
@@ -24,7 +24,7 @@
 <a
 	aria-label="Email"
 	class="rounded-full bg-background p-2 text-foreground transition-colors hover:bg-background-accent"
-	href="mailto:theprogrammergary@gmail.com"
+	href="mailto:programming@garyix.com"
 >
 	<svg
 		fill="none"
