@@ -102,8 +102,8 @@
 
 <!-- Left Sidebar -->
 <div
-	class="sticky top-0 z-50 bg-transparent p-4 backdrop-blur-xl md:flex md:h-screen
-md:w-2/5 md:flex-col md:p-12 md:px-24 md:py-20"
+	class="sticky top-0 z-50 p-4 backdrop-blur-xl md:flex md:h-screen md:w-2/5
+md:flex-col md:p-12 md:px-24 md:py-20 md:backdrop-blur-none"
 >
 	<!-- Header Section with Name -->
 	<div>
