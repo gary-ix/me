@@ -10,8 +10,10 @@
 
 <a
 	class="
-	shadow-even-accent group overflow-hidden rounded-xl bg-background-start transition-all duration-100
-	hover:scale-105 hover:shadow-accentHard-alt3 hover:brightness-90 dark:hover:brightness-150 md:shadow-none
+	shadow-even-accent group overflow-hidden rounded-xl bg-background-start transition-all
+	duration-100 hover:scale-105 hover:shadow-accentHard-alt3 hover:brightness-90
+	dark:hover:brightness-125
+	md:shadow-none
 	"
 	href={route}
 >
@@ -23,7 +25,8 @@
 				>
 					<img
 						alt={title}
-						class="h-full w-full rounded-xl object-cover transition-transform duration-200"
+						class="h-full w-full rounded-xl object-cover
+						shadow-sm shadow-foreground-inverse transition-transform duration-200"
 						src={imageUrl}
 					/>
 				</div>
