@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@lucide/svelte':
+        specifier: ^0.501.0
+        version: 0.501.0(svelte@5.28.1)
       bits-ui:
         specifier: ^0.21.13
         version: 0.21.13(svelte@5.28.1)
@@ -324,6 +327,11 @@ packages:
 
   '@kurkle/color@0.3.2':
     resolution: {integrity: sha512-fuscdXJ9G1qb7W8VdHi+IwRqij3lBkosAm4ydQtEmbY58OzHXqQhvlxqEkoz0yssNVn38bcpRWgA9PP+OGoisw==}
+
+  '@lucide/svelte@0.501.0':
+    resolution: {integrity: sha512-W3YWDyANY+Gi1wzf4JKK5bRYGqRQFAIDbNmMR1ujZ/TR+/jT+8rj9txn5XEuxygYn0ioEw5EcaVewDWSUOU/bg==}
+    peerDependencies:
+      svelte: ^5
 
   '@melt-ui/svelte@0.76.2':
     resolution: {integrity: sha512-7SbOa11tXUS95T3fReL+dwDs5FyJtCEqrqG3inRziDws346SYLsxOQ6HmX+4BkIsQh1R8U3XNa+EMmdMt38lMA==}
@@ -2095,6 +2103,10 @@ snapshots:
       '@jridgewell/sourcemap-codec': 1.5.0
 
   '@kurkle/color@0.3.2': {}
+
+  '@lucide/svelte@0.501.0(svelte@5.28.1)':
+    dependencies:
+      svelte: 5.28.1
 
   '@melt-ui/svelte@0.76.2(svelte@5.28.1)':
     dependencies:

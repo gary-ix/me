@@ -1,7 +1,6 @@
 <script lang="ts">
+	import { Moon, Sun } from '@lucide/svelte'
 	import { Button } from '$lib/components/ui/button'
-	import IconDarkMode from '$lib/components/ui/icons/icon-dark-mode.svelte'
-	import IconLightMode from '$lib/components/ui/icons/icon-light-mode.svelte'
 	import { mode, ModeWatcher, setMode, toggleMode } from 'mode-watcher'
 	import { onMount } from 'svelte'
 
@@ -19,8 +18,8 @@
 	variant="ghost"
 >
 	{#if mode.current === 'dark'}
-		<IconDarkMode />
+		<Moon />
 	{:else}
-		<IconLightMode />
+		<Sun />
 	{/if}
 </Button>

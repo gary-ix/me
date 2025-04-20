@@ -1,8 +1,9 @@
 <script lang="ts">
 	import { goto } from '$app/navigation'
 	import { page } from '$app/stores'
+	import Footer from '$lib/components/layout/footer/footer.svelte'
 	import MouseGlow from '$lib/components/layout/mouseGlow/mouse-glow.svelte'
-	import SocialLinks from '$lib/components/layout/sidebar/icon-lins.svelte'
+	import SocialLinks from '$lib/components/layout/sidebar/icon-links.svelte'
 	import ThemeMode from '$lib/components/layout/themeMode/theme-mode.svelte'
 	import { onMount } from 'svelte'
 
@@ -10,20 +11,20 @@
 
 	let observer: IntersectionObserver
 
-	// Handle navigation and smooth scrolling to sections
-	async function navigateOrScroll(event: MouseEvent, sectionId: string) {
-		// ... existing code ...
-	}
+	// // Handle navigation and smooth scrolling to sections
+	// async function navigateOrScroll(event: MouseEvent, sectionId: string) {
+	// 	// ... existing code ...
+	// }
 
-	// Setup intersection observer to track active sections during scroll
-	function setupObserver() {
-		// ... existing code ...
-	}
+	// // Setup intersection observer to track active sections during scroll
+	// function setupObserver() {
+	// 	// ... existing code ...
+	// }
 
-	// Initialize observers and handle page changes
-	onMount(() => {
-		// ... existing code ...
-	})
+	// // Initialize observers and handle page changes
+	// onMount(() => {
+	// 	// ... existing code ...
+	// })
 
 	let { children } = $props()
 	let activeSection = $state('about')
@@ -127,24 +128,7 @@
 			{@render children()}
 		</div>
 
-		<!-- Footer Section -->
-		<section class="mb-16" id="footer">
-			<p class="text-center text-sm text-accentSubtle-alt2">
-				Built with <span class="font-bold text-accentHard-alt3">Sveltekit</span
-				>,
-				<span class="font-bold text-accentHard-alt3">TailwindCSS</span>, and
-				deployed on
-				<span class="font-bold text-accentHard-alt3">Cloudflare</span>.
-			</p>
-
-			<!-- Extras Link -->
-			<!-- <div class="flex justify-center pt-2">
-				<a href="/extras">
-					<span class="text-center text-sm font-bold text-accentHard-alt3">
-						👀 Extras
-					</span>
-				</a>
-			</div> -->
-		</section>
+		<!-- Footer -->
+		<Footer />
 	</div>
 </div>

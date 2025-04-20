@@ -47,6 +47,7 @@
 		"vitest": "^2.0.5"
 	},
 	"dependencies": {
+		"@lucide/svelte": "^0.501.0",
 		"bits-ui": "^0.21.13",
 		"chart.js": "^4.4.5",
 		"clsx": "^2.1.1",
