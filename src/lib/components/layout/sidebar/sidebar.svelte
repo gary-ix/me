@@ -60,7 +60,7 @@ md:w-2/5 md:flex-col md:p-12 md:px-24 md:py-20"
 			<ul
 				class="flex flex-row justify-between px-0 md:flex-col md:space-y-2 md:px-0"
 			>
-				{#each ['ABOUT', 'EXPERIENCE', 'PROJECTS'] as section}
+				{#each ['ABOUT', 'SKILLS', 'PROJECTS'] as section}
 					<li class="flex-1 md:flex-none">
 						<a
 							class="group relative block py-1.5 text-center text-sm font-medium transition-all
