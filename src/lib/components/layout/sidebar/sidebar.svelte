@@ -27,12 +27,17 @@
 	let isProjectsRoute = $derived($page.url.pathname.startsWith('/projects'))
 </script>
 
+<!-- Theme Toggle Button - Fixed in top right -->
+<div class="fixed right-4 top-8 z-[60] md:right-8">
+	<ThemeMode />
+</div>
+
 <!-- Left Sidebar -->
 <div
-	class="sticky top-0 z-50 p-4 backdrop-blur-xl md:flex
-md:h-screen md:w-2/5 md:flex-col md:px-24"
+	class="sticky top-0 z-50 bg-transparent p-4 backdrop-blur-xl md:flex md:h-screen
+md:w-2/5 md:flex-col md:p-12 md:px-24 md:py-20"
 >
-	<!-- Header Section with Name and Theme Toggle -->
+	<!-- Header Section with Name -->
 	<div>
 		<div class="flex items-center justify-between md:mb-8 md:block">
 			<!-- Name and Title -->
@@ -48,10 +53,6 @@ md:h-screen md:w-2/5 md:flex-col md:px-24"
 					<p class="md:text-md text-xl text-foreground">Full-Stack Dev</p>
 					<p class="text-md text-foreground-alt1">I build things.</p>
 				</a>
-			</div>
-			<!-- Theme Toggle Button -->
-			<div class="relative md:fixed md:right-12 md:top-8">
-				<ThemeMode />
 			</div>
 		</div>
 
