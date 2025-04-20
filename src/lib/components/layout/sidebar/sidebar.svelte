@@ -46,7 +46,9 @@
 			</a>
 		</div>
 		<!-- Theme Toggle Button -->
-		<ThemeMode />
+		<div class="relative md:fixed md:right-12 md:top-8">
+			<ThemeMode />
+		</div>
 	</div>
 
 	<!-- Navigation Menu -->
