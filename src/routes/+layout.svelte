@@ -1,16 +1,9 @@
-<style>
-	:global(body) {
-		--mouse-x: 0px;
-		--mouse-y: 0px;
-	}
-</style>
-
 <script lang="ts">
-	import { browser } from '$app/environment'
 	import { goto } from '$app/navigation'
 	import { page } from '$app/stores'
 	import MobileLinks from '$lib/components/header/mobile-links.svelte'
-	import ThemeMode from '$lib/components/layout/themeMode/themeMode.svelte'
+	import MouseGlow from '$lib/components/layout/mouseGlow/MouseGlow.svelte'
+	import ThemeMode from '$lib/components/layout/themeMode/ThemeMode.svelte'
 	import { onMount } from 'svelte'
 
 	import '../app.css'
@@ -81,34 +74,10 @@
 	let { children } = $props()
 	let activeSection = $state('about')
 	let isProjectsRoute = $derived($page.url.pathname.startsWith('/projects'))
-
-	let spotlight: HTMLElement
-
-	function handleMouseMove(event: MouseEvent) {
-		if (!spotlight) return
-
-		const x = event.clientX
-		const y = event.clientY
-
-		spotlight.style.setProperty('--mouse-x', `${x}px`)
-		spotlight.style.setProperty('--mouse-y', `${y}px`)
-	}
-
-	onMount(() => {
-		document.addEventListener('mousemove', handleMouseMove)
-
-		return () => {
-			document.removeEventListener('mousemove', handleMouseMove)
-		}
-	})
 </script>
 
+<MouseGlow />
 <div class="relative md:flex md:h-screen">
-	<div
-		bind:this={spotlight}
-		class="pointer-events-none fixed inset-0 z-50 bg-spotlight opacity-30"
-	></div>
-
 	<div
 		class="bg-background-start p-4 md:flex md:w-2/5 md:flex-col md:px-24 md:py-16"
 	>
@@ -125,11 +94,10 @@
 						Gary
 					</h1>
 					<p class="md:text-md py-2 text-xl text-foreground md:mb-6 md:block">
-						Full-Stack Developer
+						Full-Stack Dev
 					</p>
 					<p class="md:text-md text-md py-0 text-foreground-alt1 md:py-0">
-						I build tools that empower traders to make informed decisions and
-						optimize their trading workflow.
+						I build things.
 					</p>
 				</a>
 			</div>
