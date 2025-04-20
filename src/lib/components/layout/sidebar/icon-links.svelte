@@ -5,7 +5,7 @@
 
 <Button
 	aria-label="GitHub"
-	class="rounded-full bg-background p-2 text-foreground"
+	class="rounded-full bg-transparent p-2 text-foreground"
 	href="https://github.com/gary-ix"
 	rel="noopener noreferrer"
 	target="_blank"
@@ -16,7 +16,7 @@
 
 <Button
 	aria-label="Email"
-	class="rounded-full bg-background p-2 text-foreground"
+	class="rounded-full bg-transparent p-2 text-foreground"
 	href="mailto:programming@garyix.com"
 	variant="ghost"
 >
@@ -25,7 +25,7 @@
 
 <Button
 	aria-label="Twitter"
-	class="inline-block rounded-full bg-background p-2 text-foreground"
+	class="inline-block rounded-full bg-transparent p-2 text-foreground"
 	href="https://x.com/gary_ix"
 	rel="noopener noreferrer"
 	target="_blank"
