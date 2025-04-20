@@ -10,20 +10,10 @@
 	import { goto } from '$app/navigation'
 	import { page } from '$app/stores'
 	import MobileLinks from '$lib/components/header/mobile-links.svelte'
-	import IconDarkMode from '$lib/components/ui/icons/icon-dark-mode.svelte'
-	import IconLightMode from '$lib/components/ui/icons/icon-light-mode.svelte'
+	import ThemeMode from '$lib/components/layout/themeMode/themeMode.svelte'
 	import { onMount } from 'svelte'
 
 	import '../app.css'
-
-	function toggleDarkMode() {
-		isDarkMode = !isDarkMode
-		document.documentElement.classList.toggle('dark')
-
-		if (browser) {
-			localStorage.setItem('darkMode', isDarkMode.toString())
-		}
-	}
 
 	async function navigateOrScroll(event: MouseEvent, sectionId: string) {
 		event.preventDefault()
@@ -76,10 +66,6 @@
 	}
 
 	onMount(() => {
-		if (isDarkMode) {
-			document.documentElement.classList.add('dark')
-		}
-
 		setupObserver()
 
 		return page.subscribe($page => {
@@ -95,9 +81,6 @@
 	let { children } = $props()
 	let activeSection = $state('about')
 	let isProjectsRoute = $derived($page.url.pathname.startsWith('/projects'))
-	let isDarkMode = $state(
-		browser ? localStorage.getItem('darkMode') === 'true' : false
-	)
 
 	let spotlight: HTMLElement
 
@@ -150,18 +133,7 @@
 					</p>
 				</a>
 			</div>
-			<button
-				aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
-				class="mx-4 flex h-10 w-10 items-center justify-center rounded-full bg-transparent
-				 text-foreground transition-colors hover:bg-foreground-inverse md:absolute md:right-4 md:top-4"
-				onclick={toggleDarkMode}
-			>
-				{#if isDarkMode}
-					<IconDarkMode />
-				{:else}
-					<IconLightMode />
-				{/if}
-			</button>
+			<ThemeMode />
 		</div>
 		<nav class="mt-4 md:mt-24">
 			<ul
