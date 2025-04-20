@@ -1,12 +1,14 @@
 <script lang="ts">
 	import { goto } from '$app/navigation'
 	import { page } from '$app/stores'
-	import MobileLinks from '$lib/components/header/mobile-links.svelte'
 	import MouseGlow from '$lib/components/layout/mouseGlow/MouseGlow.svelte'
+	import MobileLinks from '$lib/components/layout/sidebar/mobile-links.svelte'
 	import ThemeMode from '$lib/components/layout/themeMode/ThemeMode.svelte'
 	import { onMount } from 'svelte'
 
 	import '../app.css'
+
+	let observer: IntersectionObserver
 
 	async function navigateOrScroll(event: MouseEvent, sectionId: string) {
 		event.preventDefault()
@@ -28,8 +30,6 @@
 
 		activeSection = sectionId
 	}
-
-	let observer: IntersectionObserver
 
 	function setupObserver() {
 		if (observer) {
