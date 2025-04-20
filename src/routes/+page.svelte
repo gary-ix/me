@@ -76,8 +76,8 @@
 
 	<!-- Skills Section -->
 	<section id="skills">
-		<h2 class="mb-4 text-3xl font-bold text-foreground">Skills</h2>
-		<div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+		<h2 class="mb-6 text-3xl font-bold text-foreground">Skills</h2>
+		<div class="grid grid-cols-1 gap-8 md:grid-cols-2">
 			<SkillCard skills={frontendSkills} title="Frontend" />
 			<SkillCard skills={backendSkills} title="Backend" />
 			<SkillCard skills={ciSkills} title="CI" />
