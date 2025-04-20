@@ -12,7 +12,7 @@
 		<SocialLinks />
 	</div>
 
-	<p class="text-center text-sm text-accentSubtle-alt2">
+	<p class="text-center text-sm text-accentSubtle-alt4">
 		Built with <span class="font-bold text-accentHard-alt3">Sveltekit</span>,
 		<span class="font-bold text-accentHard-alt3">TailwindCSS</span>, and
 		deployed on
