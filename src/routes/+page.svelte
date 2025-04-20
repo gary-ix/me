@@ -1,30 +1,38 @@
 <script lang="ts">
 	import ExperienceChart from '$lib/components/chart/experience-chart.svelte'
+	import { Button } from '$lib/components/ui/button'
 	import ProjectCard from '$lib/components/ui/project-card.svelte'
 </script>
 
 <!-- About Section -->
 <section class="mb-36 pt-10" id="about">
 	<h2 class="mb-8 text-3xl font-bold text-foreground">
-		About <span class="ml-2">📖</span>
+		About <span class="ml-2"></span>
 	</h2>
-	<div class="text-md space-y-6 text-foreground-alt1">
+	<div class="text-md select-none space-y-6 text-foreground-alt1">
 		<p class="leading-relaxed">
-			It all started being a curious child who liked to tinker with tech and an
-			entrepreneurial spirit. Today, I'm a full-stack developer with over 7
-			years of experience.
+			Hi (hello world), My name is <span class="font-bold text-accentHard-alt3"
+				>Garrett</span
+			>, and programming started for me by being a curious child who liked to
+			play on the computer.
 		</p>
+
 		<p class="leading-relaxed">
-			Today my main focus is building the best retail futures trading platform,
-			Tradester, which I co-founded. I most enjoy making elegant & efficient UI
-			and UX, but my OCD motivates me to continously iterate for optimized
-			performance. In my free time I build trading tools for public & personal
-			use, and dabble in whatever re-ignites that childhood curiosity.
+			Currently I am building the best retail trading platform,
+			<span class="font-bold text-accentHard-alt3">Tradester </span>, which I
+			co-founded. I enjoy making things
+			<span class="font-bold text-accentHard-alt3">look good and fast</span>
+			through multiple iterations. In my free time I build
+			<span class="font-bold text-accentHard-alt3">trading tools</span> for public
+			& personal use, and dabble in whatever re-ignites that childhood curiosity.
 		</p>
+
 		<p class="leading-relaxed">
-			When I'm not programming, I'm touching grass. That involves spending time
-			with family and friends, working on my fitness (chad devs only), playing
-			golf (looking for ball in rough), or laughing at my own jokes.
+			When I am not programming and am touching grass I enjoy playing
+			<span class="font-bold text-accentHard-alt3"> golf, </span> going on
+			<span class="font-bold text-accentHard-alt3">walks </span>, and
+			<span class="font-bold text-accentHard-alt3"> socializing</span>
+			with friends and family.
 		</p>
 	</div>
 </section>
@@ -108,15 +116,14 @@
 	</div>
 
 	<div class="mt-12 text-center">
-		<a
-			class="rounded-lg bg-transparent px-3
-				py-1 text-sm font-medium text-foreground-alt1
-				transition-colors hover:border hover:border-accentHard-alt1"
+		<Button
+			class="text-sm font-medium text-foreground-alt1"
 			href="https://github.com/gary-ix"
 			rel="noopener noreferrer"
 			target="_blank"
+			variant="outline"
 		>
 			+ More on GitHub
-		</a>
+		</Button>
 	</div>
 </section>
