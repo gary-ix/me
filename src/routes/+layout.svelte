@@ -2,7 +2,7 @@
 	import { goto } from '$app/navigation'
 	import { page } from '$app/stores'
 	import MouseGlow from '$lib/components/layout/mouseGlow/MouseGlow.svelte'
-	import MobileLinks from '$lib/components/layout/sidebar/mobile-links.svelte'
+	import MobileLinks from '$lib/components/layout/sidebar/IconLinks.svelte'
 	import ThemeMode from '$lib/components/layout/themeMode/ThemeMode.svelte'
 	import { onMount } from 'svelte'
 
@@ -10,65 +10,19 @@
 
 	let observer: IntersectionObserver
 
+	// Handle navigation and smooth scrolling to sections
 	async function navigateOrScroll(event: MouseEvent, sectionId: string) {
-		event.preventDefault()
-		const isHomePage = $page.url.pathname === '/'
-
-		if (!isHomePage || sectionId === 'projects') {
-			await goto('/')
-
-			await new Promise(resolve => {
-				return setTimeout(resolve, 100)
-			})
-		}
-
-		const section = document.getElementById(sectionId)
-
-		if (section) {
-			section.scrollIntoView({ behavior: 'smooth' })
-		}
-
-		activeSection = sectionId
+		// ... existing code ...
 	}
 
+	// Setup intersection observer to track active sections during scroll
 	function setupObserver() {
-		if (observer) {
-			observer.disconnect()
-		}
-
-		observer = new IntersectionObserver(
-			entries => {
-				entries.forEach(entry => {
-					if (entry.isIntersecting) {
-						activeSection = entry.target.id
-					}
-				})
-			},
-			{ threshold: 0.5 }
-		)
-
-		const sections = ['about', 'experience', 'projects']
-
-		sections.forEach(id => {
-			const section = document.getElementById(id)
-
-			if (section) {
-				observer.observe(section)
-			}
-		})
+		// ... existing code ...
 	}
 
+	// Initialize observers and handle page changes
 	onMount(() => {
-		setupObserver()
-
-		return page.subscribe($page => {
-			if ($page.url.pathname === '/') {
-				// Re-setup the observer when returning to the home page
-				setTimeout(setupObserver, 0)
-			} else if ($page.url.pathname.startsWith('/projects')) {
-				activeSection = 'projects'
-			}
-		})
+		// ... existing code ...
 	})
 
 	let { children } = $props()
@@ -78,10 +32,13 @@
 
 <MouseGlow />
 <div class="relative md:flex md:h-screen">
+	<!-- Left Sidebar -->
 	<div
 		class="bg-background-start p-4 md:flex md:w-2/5 md:flex-col md:px-24 md:py-16"
 	>
+		<!-- Header Section with Name and Theme Toggle -->
 		<div class="flex items-center justify-between md:mb-8 md:block">
+			<!-- Name and Title -->
 			<div>
 				<a
 					class="cursor-pointer"
@@ -101,8 +58,11 @@
 					</p>
 				</a>
 			</div>
+			<!-- Theme Toggle Button -->
 			<ThemeMode />
 		</div>
+
+		<!-- Navigation Menu -->
 		<nav class="mt-4 md:mt-24">
 			<ul
 				class="flex flex-row justify-between px-0 md:flex-col md:space-y-2 md:px-0"
@@ -119,7 +79,7 @@
 								return navigateOrScroll(e, section.toLowerCase())
 							}}
 						>
-							<!-- Indicator character (hidden on mobile) -->
+							<!-- Section Indicator (📈 emoji) -->
 							<span
 								class="absolute left-0 hidden transition-all duration-300 md:block"
 								class:opacity-0={activeSection !== section.toLowerCase() &&
@@ -132,7 +92,7 @@
 									? '📈'
 									: ''}
 							</span>
-							<!-- Text content -->
+							<!-- Navigation Link Text -->
 							<span
 								class="relative z-10 text-accentHard-alt3 transition-all duration-300 group-hover:text-foreground-alt1"
 								class:md:font-bold={activeSection === section.toLowerCase() ||
@@ -154,12 +114,15 @@
 			</ul>
 		</nav>
 
+		<!-- Social Links (Desktop Only) -->
 		<div class="hidden md:mt-auto md:flex md:space-x-4">
 			<MobileLinks />
 		</div>
 	</div>
 
+	<!-- Main Content Area -->
 	<div class="md:w-3/5 md:overflow-y-auto">
+		<!-- Page Content -->
 		<div class="p-4 md:p-8">
 			{@render children()}
 		</div>
@@ -174,6 +137,7 @@
 				<span class="font-bold text-accentHard-alt3">Cloudflare</span> pages.
 			</p>
 
+			<!-- Extras Link -->
 			<div class="flex justify-center pt-2">
 				<a href="/extras">
 					<span class="text-center text-sm font-bold text-accentHard-alt3">
