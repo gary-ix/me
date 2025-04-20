@@ -2,28 +2,23 @@
 	import { goto } from '$app/navigation'
 	import { page } from '$app/stores'
 	import SocialLinks from '$lib/components/layout/sidebar/icon-links.svelte'
-	import { onDestroy, onMount } from 'svelte'
-	import { tick } from 'svelte'
+	import { onDestroy, onMount, tick } from 'svelte'
 
 	import ThemeMode from '../themeMode/theme-mode.svelte'
 
-	let activeSection = 'about'
+	let activeSection = $state('about')
+	let isNavigating = false
 	let unsubscribe: () => void
 
-	// Helper: check if current route is a projects route
-	// $: isProjectsRoute = $page.url.pathname.startsWith('/projects')
-	let isProjectsRoute = $page.url.pathname.startsWith('/projects')
+	let isProjectsRoute = $state($page.url.pathname.startsWith('/projects'))
 
 	// Navigation and smooth scroll
 	async function navigateOrScroll(event: MouseEvent, sectionId: string) {
 		event.preventDefault()
 		const isHome = $page.url.pathname === '/'
 
-		const mobileOffset = 175 // px, adjust as needed
-		const desktopOffset = 50 // px, adjust as needed
-
-		function getOffset() {
-			return window.innerWidth < 768 ? mobileOffset : desktopOffset
+		const getOffset = () => {
+			return window.innerWidth < 768 ? 175 : 50
 		}
 
 		async function scrollToSection() {
@@ -31,8 +26,13 @@
 
 			if (el) {
 				const y = el.getBoundingClientRect().top + window.scrollY - getOffset()
+				isNavigating = true
 				window.scrollTo({ behavior: 'smooth', top: y })
 				activeSection = sectionId
+
+				setTimeout(() => {
+					return (isNavigating = false)
+				}, 600)
 			}
 		}
 
@@ -59,6 +59,8 @@
 
 		const observer = new IntersectionObserver(
 			entries => {
+				if (isNavigating) return
+
 				entries.forEach(entry => {
 					if (entry.isIntersecting) {
 						activeSection = entry.target.id
@@ -67,7 +69,7 @@
 			},
 			{
 				root: null,
-				rootMargin: '0px 0px -60% 0px', // Trigger when section is 40% from top
+				rootMargin: '0px 0px -60% 0px',
 				threshold: 0.2
 			}
 		)
@@ -82,8 +84,7 @@
 	}
 
 	onMount(() => {
-		// Only observe on homepage
-		if ($page.url.pathname === '/') {
+		if ($page.url.pathname === '/' || isProjectsRoute) {
 			const cleanup = setupObserver()
 			unsubscribe = cleanup || (() => {})
 		}
@@ -154,7 +155,7 @@ md:w-2/5 md:flex-col md:p-12 md:px-24 md:py-20"
 							</span>
 							<!-- Navigation Link Text -->
 							<span
-								class="group-hover:text-netural-e4 relative z-10 text-secondary transition-all duration-300"
+								class="group-hover:text-netural-e4 relative z-10 transition-all duration-300"
 								class:md:font-bold={activeSection === section.toLowerCase() ||
 									(section === 'PROJECTS' && isProjectsRoute)}
 								class:md:pl-6={activeSection === section.toLowerCase() ||
@@ -165,6 +166,9 @@ md:w-2/5 md:flex-col md:p-12 md:px-24 md:py-20"
 								class:text-netural-e8={activeSection ===
 									section.toLowerCase() ||
 									(section === 'PROJECTS' && isProjectsRoute)}
+								class:text-neutral-e8={activeSection !==
+									section.toLowerCase() &&
+									!(section === 'PROJECTS' && isProjectsRoute)}
 							>
 								{section}
 							</span>
