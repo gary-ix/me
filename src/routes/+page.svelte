@@ -1,6 +1,41 @@
 <script lang="ts">
 	import { Button } from '$lib/components/ui/button'
 	import ProjectCard from '$lib/components/ui/project-card.svelte'
+	import SkillCard from '$lib/components/ui/skill-card.svelte'
+
+	const languages = []
+	const frontendSkills = [
+		'Svelte',
+		'Tailwind',
+		'Typescript',
+		'Vanilla JS/CSS',
+		'Chrome Extension'
+	]
+	const backendSkills = [
+		'NodeJs',
+		'Express',
+		'Python',
+		'C++',
+		'Redis',
+		'SQLite',
+		'Firebase',
+		'PubSub',
+		'API',
+		'Powershell',
+		'VPS',
+		'Docker'
+	]
+	const ciSkills = ['Cloudflare Pages', 'Cloudflare', 'Firebase', 'Docker']
+
+	const toolingSkills = [
+		'ESLint',
+		'Prettier',
+		'Image Matching/Comparison',
+		'Pinescript',
+		'Thinkscript',
+		'TS-EasyLanguage',
+		'Python - Tkinter'
+	]
 </script>
 
 <div class="flex flex-col space-y-24">
@@ -41,9 +76,13 @@
 
 	<!-- Skills Section -->
 	<section id="skills">
-		<h2 class="mb-8 text-3xl font-bold text-foreground">
-			Skills <span class="ml-2"></span>
-		</h2>
+		<h2 class="mb-4 text-3xl font-bold text-foreground">Skills</h2>
+		<div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+			<SkillCard skills={frontendSkills} title="Frontend" />
+			<SkillCard skills={backendSkills} title="Backend" />
+			<SkillCard skills={ciSkills} title="CI" />
+			<SkillCard skills={toolingSkills} title="Tooling" />
+		</div>
 	</section>
 
 	<!-- Projects Section -->
