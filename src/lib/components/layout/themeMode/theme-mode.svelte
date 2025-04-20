@@ -5,7 +5,7 @@
 	import { onMount } from 'svelte'
 
 	onMount(() => {
-		setMode('dark')
+		setMode(mode.current ?? 'dark')
 	})
 </script>
 
