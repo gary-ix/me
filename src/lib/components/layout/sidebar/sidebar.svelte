@@ -9,6 +9,7 @@
 	let activeSection = $state('about')
 	let isNavigating = false
 	let unsubscribe: () => void
+	let unsubscribePage: () => void
 
 	let isProjectsRoute = $state($page.url.pathname.startsWith('/projects'))
 
@@ -69,8 +70,8 @@
 			},
 			{
 				root: null,
-				rootMargin: '0px 0px -60% 0px',
-				threshold: 0.2
+				rootMargin: '0px 0px -25% 0px',
+				threshold: 0.1
 			}
 		)
 
@@ -83,15 +84,20 @@
 		}
 	}
 
-	onMount(() => {
-		if ($page.url.pathname === '/' || isProjectsRoute) {
-			const cleanup = setupObserver()
-			unsubscribe = cleanup || (() => {})
-		}
+	onMount(async () => {
+		unsubscribePage = page.subscribe(async $page => {
+			if ($page.url.pathname === '/' || isProjectsRoute) {
+				await tick()
+				if (unsubscribe) unsubscribe()
+				const cleanup = setupObserver()
+				unsubscribe = cleanup || (() => {})
+			} else if (unsubscribe) unsubscribe()
+		})
 	})
 
 	onDestroy(() => {
 		if (unsubscribe) unsubscribe()
+		if (unsubscribePage) unsubscribePage()
 	})
 </script>
 
