@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { Button } from '$lib/components/ui/button'
 	import IconDarkMode from '$lib/components/ui/icons/icon-dark-mode.svelte'
 	import IconLightMode from '$lib/components/ui/icons/icon-light-mode.svelte'
 	import { mode, ModeWatcher, setMode, toggleMode } from 'mode-watcher'
@@ -11,15 +12,15 @@
 
 <ModeWatcher />
 
-<button
+<Button
 	aria-label="Switch theme"
-	class="mx-4 flex h-10 w-10 items-center justify-center rounded-full bg-transparent
- text-foreground transition-all duration-200 hover:scale-125 md:absolute md:right-8 md:top-6"
+	class="mx-4  rounded-full bg-transparent text-foreground md:absolute md:right-8 md:top-6"
 	onclick={toggleMode}
+	variant="ghost"
 >
 	{#if mode.current === 'dark'}
 		<IconDarkMode />
 	{:else}
 		<IconLightMode />
 	{/if}
-</button>
+</Button>

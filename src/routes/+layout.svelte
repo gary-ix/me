@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { goto } from '$app/navigation'
 	import { page } from '$app/stores'
-	import MouseGlow from '$lib/components/layout/mouseGlow/MouseGlow.svelte'
-	import MobileLinks from '$lib/components/layout/sidebar/IconLinks.svelte'
-	import ThemeMode from '$lib/components/layout/themeMode/ThemeMode.svelte'
+	import MouseGlow from '$lib/components/layout/mouseGlow/mouse-glow.svelte'
+	import SocialLinks from '$lib/components/layout/sidebar/icon-lins.svelte'
+	import ThemeMode from '$lib/components/layout/themeMode/theme-mode.svelte'
 	import { onMount } from 'svelte'
 
 	import '../app.css'
@@ -116,7 +116,7 @@
 
 		<!-- Social Links (Desktop Only) -->
 		<div class="hidden md:mt-auto md:flex md:space-x-4">
-			<MobileLinks />
+			<SocialLinks />
 		</div>
 	</div>
 
@@ -134,17 +134,17 @@
 				>,
 				<span class="font-bold text-accentHard-alt3">TailwindCSS</span>, and
 				deployed on
-				<span class="font-bold text-accentHard-alt3">Cloudflare</span> pages.
+				<span class="font-bold text-accentHard-alt3">Cloudflare</span>.
 			</p>
 
 			<!-- Extras Link -->
-			<div class="flex justify-center pt-2">
+			<!-- <div class="flex justify-center pt-2">
 				<a href="/extras">
 					<span class="text-center text-sm font-bold text-accentHard-alt3">
 						👀 Extras
 					</span>
 				</a>
-			</div>
+			</div> -->
 		</section>
 	</div>
 </div>

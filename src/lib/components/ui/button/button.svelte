@@ -16,7 +16,11 @@
 
 <ButtonPrimitive.Root
 	builders={builders}
-	class={cn(buttonVariants({ size, variant }), className)}
+	class={cn(
+		buttonVariants({ size, variant }),
+		'scale transition-all duration-200 hover:scale-125',
+		className
+	)}
 	type="button"
 	{...$$restProps}
 	on:click
