@@ -11,12 +11,8 @@
 <MouseGlow />
 <div class="relative min-h-screen bg-background-start md:flex">
 	<!-- Sidebar (Always Sticky) -->
-	<div
-		class="sticky top-0 z-50 bg-background-start p-4 md:flex
-		md:h-screen md:w-2/5 md:flex-col md:bg-transparent md:px-24 md:py-20"
-	>
-		<Sidebar />
-	</div>
+
+	<Sidebar />
 
 	<!-- Main Content Area -->
 	<div class="flex flex-col md:w-3/5 md:pt-12">
