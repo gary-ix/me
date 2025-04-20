@@ -13,7 +13,7 @@
 </script>
 
 <div
-	class="shadow-even-accent group rounded-xl bg-background-start p-5 py-8 shadow-accentHard-alt1
+	class="shadow-even-accent group rounded-xl bg-background-start p-5 py-8 shadow-accentHard-alt2
 	hover:scale-105
 	hover:shadow-accentHard-alt3
 "
