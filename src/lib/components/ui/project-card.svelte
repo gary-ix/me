@@ -1,9 +1,17 @@
 <script lang="ts">
-	let { title, description, imageUrl, route, tags } = $props<{
+	let {
+		title,
+		description,
+		imageUrl,
+		newTab = false,
+		route,
+		tags
+	} = $props<{
 		title: string
 		description: string
 		route: string
 		imageUrl?: string
+		newTab?: boolean
 		tags?: string[]
 	}>()
 </script>
@@ -16,6 +24,8 @@
 	md:shadow-none
 	"
 	href={route}
+	rel={newTab ? 'noopener noreferrer' : undefined}
+	target={newTab ? '_blank' : undefined}
 >
 	<div class="flex flex-col md:flex-row">
 		<div class="w-full p-3 pt-6 md:w-1/3">

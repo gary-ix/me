@@ -109,8 +109,9 @@
 			/>
 			<ProjectCard
 				description="Making Sierra Chart accessible to everyone."
-				imageUrl="/image.png"
-				route="/projects/trading-platform-help"
+				imageUrl="/tph.png"
+				newTab={true}
+				route="https://tradingplatformhelp.com"
 				tags={[
 					'C++',
 					'Python - Tkinter',
@@ -124,8 +125,9 @@
 			<ProjectCard
 				description="Two versions available for use. One is a desktop application built 
 					using Python & TKinter, the other is a chrome extension built using vanilla JS/CSS."
-				imageUrl="/image.png"
-				route="/projects/tradingview-indicator-manager"
+				imageUrl="/indicator-manager.gif"
+				newTab={true}
+				route="https://github.com/gary-ix/Tradingview-Indicator-Manager"
 				tags={['Python', 'Typescript', 'Chrome Extension', 'API', 'SQLite']}
 				title="Tradingview Indicator Manager"
 			/>
@@ -133,32 +135,37 @@
 				description="An all-in-one discord bot for moderation, fun, and utility. Primarily
 					 built for the Good Gains trading discord with over 20K members. Good Gains branch
 					  also includes a Youtube Livestream Chatbot."
-				imageUrl="/image.png"
-				route="/projects/discord-antispam-bot"
+				imageUrl="/antispam.png"
+				newTab={true}
+				route="https://github.com/gary-ix/Discord-Antispam-Bot"
 				tags={['Python', 'Docker', 'VPS', 'Image Matching/Comparison']}
 				title="Discord Antispam Bot"
 			/>
+
 			<ProjectCard
 				description="A group of discord bots that provide real-time market info. Includes
 					 price/indicator value updates every minute, as well as a news bot that broadcasts live market news."
-				imageUrl="/image.png"
-				route="/projects/discord-market-bots"
+				imageUrl="/discord-market-bots.png"
+				newTab={true}
+				route="https://github.com/gary-ix/Discord-Market-Bots"
 				tags={['NodeJs', 'Docker', 'Redis', 'Express', 'Cloudflare']}
 				title="Discord Market Bots"
 			/>
-			<ProjectCard
+
+			<!-- <ProjectCard
 				description="Uses Youtube's PubSub API to subscribe to channel events. This
 					 implementation makes annoucement posts in Discord when a channel is live, or when a video is uploaded."
 				imageUrl="/image.png"
 				route="/projects/youtube-notifications-to-discord"
 				tags={['Typescript', 'Firebase', 'Cloudflare', 'API', 'PubSub']}
 				title="Youtube Notifications to Discord"
-			/>
+			/> -->
 
 			<ProjectCard
 				description="Freelance programming of over a thousand custom indicators...written in a variety of languages."
-				imageUrl="/image.png"
-				route="/projects/trading-indicators"
+				imageUrl="/indicator.png"
+				newTab={true}
+				route="https://github.com/gary-ix/Trading-Indicators"
 				tags={['Pinescript', 'Python', 'Thinkscript', 'C++', 'TS-EasyLanguage']}
 				title="Trading Indicators"
 			/>
