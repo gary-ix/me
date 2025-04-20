@@ -9,7 +9,8 @@
 </script>
 
 <a
-	class="group overflow-hidden rounded-lg bg-background transition-all duration-100 hover:bg-white/10"
+	class=" group overflow-hidden rounded-xl
+	bg-background transition-all duration-100 hover:brightness-90 dark:hover:brightness-150 md:p-4"
 	href={route}
 >
 	<div class="flex flex-col md:flex-row">
