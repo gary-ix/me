@@ -51,7 +51,6 @@ md:w-2/5 md:flex-col md:p-12 md:px-24 md:py-20"
 				>
 					<h1 class="text-2xl font-bold text-foreground md:text-4xl">Gary</h1>
 					<p class="md:text-md text-xl text-foreground">Full-Stack Dev</p>
-					<p class="text-md text-foreground-alt1">I build things.</p>
 				</a>
 			</div>
 		</div>
