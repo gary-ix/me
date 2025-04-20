@@ -46,5 +46,5 @@
 
 <div
 	bind:this={spotlight}
-	class="pointer-events-none fixed inset-0 z-50 bg-spotlight opacity-15 md:opacity-25"
+	class="pointer-events-none fixed inset-0 z-10 bg-spotlight opacity-15 md:opacity-25"
 ></div>

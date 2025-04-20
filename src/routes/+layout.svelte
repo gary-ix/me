@@ -9,16 +9,19 @@
 </script>
 
 <MouseGlow />
-<div class="relative bg-background-start md:flex md:h-screen">
-	<!-- Sidebar (Header on Mobile ) -->
-	<div class="p-4 md:flex md:w-2/5 md:flex-col md:px-24 md:py-20">
+<div class="relative min-h-screen bg-background-start md:flex">
+	<!-- Sidebar (Always Sticky) -->
+	<div
+		class="sticky top-0 z-50 bg-background-start p-4 md:flex
+		md:h-screen md:w-2/5 md:flex-col md:bg-transparent md:px-24 md:py-20"
+	>
 		<Sidebar />
 	</div>
 
 	<!-- Main Content Area -->
-	<div class="overflow-y-auto md:w-3/5 md:pt-12">
+	<div class="flex flex-col md:w-3/5 md:pt-12">
 		<!-- Page Content -->
-		<div class="w-full px-8 py-2 md:px-14 md:py-8">
+		<div class="w-full flex-grow px-8 py-2 md:px-14 md:py-8">
 			{@render children()}
 		</div>
 
