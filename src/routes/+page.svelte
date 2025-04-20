@@ -21,10 +21,12 @@
 			Currently I am building the best retail trading platform,
 			<span class="font-bold text-accentHard-alt3">Tradester </span>, which I
 			co-founded. I enjoy making things
-			<span class="font-bold text-accentHard-alt3">look good and fast</span>
-			through multiple iterations. In my free time I build
-			<span class="font-bold text-accentHard-alt3">trading tools</span> for public
-			& personal use, and dabble in whatever re-ignites that childhood curiosity.
+			<span class="font-bold text-accentHard-alt3">look good</span> and
+			<span class="font-bold text-accentHard-alt3"> fast</span>
+			through multiple iterations. In my free time I
+			<span class="font-bold text-accentHard-alt3">build</span> various tools
+			(many trading related), and dabble in whatever re-ignites that childhood
+			<span class="font-bold text-accentHard-alt3">curiosity</span>.
 		</p>
 
 		<p class="leading-relaxed">
