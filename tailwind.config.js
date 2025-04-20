@@ -30,6 +30,9 @@ export default {
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)'
 			},
+			boxShadow: {
+				'even-accent': '0 0 4px 0 var(--accentHard-alt1)'
+			},
 			colors: {
 				accentHard: {
 					alt1: 'var(--accentHard-alt1)',
