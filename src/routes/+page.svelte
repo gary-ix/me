@@ -3,39 +3,47 @@
 	import ProjectCard from '$lib/components/ui/project-card.svelte'
 	import SkillCard from '$lib/components/ui/skill-card.svelte'
 
-	const languages = []
+	const languages = [
+		'Javascript/Typescript',
+		'HTML',
+		'CSS/Tailwind',
+		'Python',
+		' C++',
+		'Go'
+	]
+
 	const frontendSkills = [
 		'Svelte',
-		'Tailwind',
-		'Typescript',
-		'Vanilla JS/CSS',
-		'Chrome Extension'
+		'Vanilla JS',
+		'React',
+		'Local Storage',
+		'IndexDB',
+		'XSS/CSRF Prevention',
+		'Workers'
 	]
-	const backendSkills = [
-		'NodeJs',
-		'Express',
-		'Python',
-		'C++',
-		'Redis',
-		'SQLite',
-		'Firebase',
-		'PubSub',
-		'API',
-		'Powershell',
-		'VPS',
-		'Docker'
-	]
-	const ciSkills = ['Cloudflare Pages', 'Cloudflare', 'Firebase', 'Docker']
 
-	const toolingSkills = [
-		'ESLint',
-		'Prettier',
-		'Image Matching/Comparison',
-		'Pinescript',
-		'Thinkscript',
-		'TS-EasyLanguage',
-		'Python - Tkinter'
+	const backendSkills = [
+		'REST API',
+		'Websockets',
+		'OAuth',
+		'JWT',
+		'Express',
+		'Redis',
+		'SQL & NoSQL',
+		'Docker',
+		'Serverless & Serverful'
 	]
+
+	const ciSkills = [
+		'Github Actions',
+		'AWS',
+		'Cloudflare',
+		'Firebase',
+		'Docker',
+		'Digital Ocean (VPS)'
+	]
+
+	const toolingSkills = ['ESLint', 'Prettier', 'CLI', 'Husky', 'Vite', 'Vitest']
 </script>
 
 <div class="flex flex-col space-y-24">
@@ -78,6 +86,7 @@
 	<section id="skills">
 		<h2 class="mb-6 text-3xl font-bold text-foreground">Skills</h2>
 		<div class="grid grid-cols-1 gap-8 md:grid-cols-2">
+			<SkillCard skills={languages} title="Lanuages" />
 			<SkillCard skills={frontendSkills} title="Frontend" />
 			<SkillCard skills={backendSkills} title="Backend" />
 			<SkillCard skills={ciSkills} title="CI" />
