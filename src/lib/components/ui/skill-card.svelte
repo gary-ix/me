@@ -13,7 +13,7 @@
 </script>
 
 <div
-	class="shadow-even-accent bg-neutral-e1 shadow-secondary-h1-alt2 group rounded-xl p-5 py-8 hover:scale-105
+	class="shadow-even-accent bg-neutral-e1 group rounded-xl p-5 py-8 shadow-secondary hover:scale-105
 	hover:shadow-secondary
 	hover:brightness-90
 	dark:hover:brightness-150
@@ -21,10 +21,10 @@
 "
 >
 	<h3
-		class="group-hover:text-secondary-h1-alt2 -mt-3 mb-3 flex items-center gap-2
+		class="text-netural-e8 -mt-3 mb-3 flex items-center gap-2
 		font-semibold
-		text-foreground
-		group-hover:font-bold"
+		group-hover:font-bold
+		group-hover:text-secondary"
 	>
 		{#if icon}
 			{@html icon}
@@ -34,8 +34,8 @@
 	<div class="flex flex-wrap gap-2">
 		{#each skills as skill}
 			<span
-				class="hover:text-secondary-h1-alt2 rounded px-3 py-1 text-sm font-medium
-				 text-foreground-alt1 transition-transform hover:scale-125"
+				class="text-netural-e4 rounded px-3 py-1 text-sm font-medium
+				 transition-transform hover:scale-125 hover:text-secondary"
 			>
 				{skill}
 			</span>

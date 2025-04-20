@@ -49,10 +49,10 @@
 <div class="flex flex-col space-y-24">
 	<!-- About Section -->
 	<section id="about">
-		<h2 class="mb-8 text-3xl font-bold text-foreground">
+		<h2 class="text-netural-e8 mb-8 text-3xl font-bold">
 			About <span class="ml-2"></span>
 		</h2>
-		<div class="text-md select-none space-y-6 text-foreground-alt1">
+		<div class="text-md text-netural-e4 select-none space-y-6">
 			<p class="leading-relaxed">
 				Hi (hello world), My name is <span class="font-bold text-secondary"
 					>Garrett</span
@@ -84,7 +84,7 @@
 
 	<!-- Skills Section -->
 	<section id="skills">
-		<h2 class="mb-6 text-3xl font-bold text-foreground">Skills</h2>
+		<h2 class="text-netural-e8 mb-6 text-3xl font-bold">Skills</h2>
 		<div class="grid grid-cols-1 gap-8 md:grid-cols-2">
 			<SkillCard skills={languages} title="Lanuages" />
 			<SkillCard skills={frontendSkills} title="Frontend" />
@@ -96,7 +96,7 @@
 
 	<!-- Projects Section -->
 	<section id="projects">
-		<h2 class="mb-8 text-3xl font-bold text-foreground">
+		<h2 class="text-netural-e8 mb-8 text-3xl font-bold">
 			Projects <span class="ml-2"></span>
 		</h2>
 		<div class="flex flex-col space-y-12">
@@ -173,7 +173,7 @@
 
 		<div class="mt-12 text-center">
 			<Button
-				class="text-sm font-medium text-foreground-alt1"
+				class="text-netural-e4 text-sm font-medium"
 				href="https://github.com/gary-ix"
 				rel="noopener noreferrer"
 				target="_blank"

@@ -31,12 +31,12 @@
 		<div class="w-full p-3 pt-6 md:w-1/3">
 			{#if imageUrl}
 				<div
-					class="aspect-rectangle w-full overflow-hidden rounded-3xl bg-background p-6 md:p-2"
+					class="aspect-rectangle bg-neutral-e1 w-full overflow-hidden rounded-3xl p-6 md:p-2"
 				>
 					<img
 						alt={title}
-						class="h-full w-full rounded-xl object-cover
-						shadow-sm shadow-foreground-inverse transition-transform duration-200"
+						class="shadow-neural-e1 h-full w-full rounded-xl
+						object-cover shadow-sm transition-transform duration-200"
 						src={imageUrl}
 					/>
 				</div>
@@ -44,12 +44,12 @@
 		</div>
 		<div class="w-full p-6 md:w-2/3">
 			<h3
-				class="mb-2 text-xl font-semibold text-foreground transition-colors
+				class="text-netural-e8 mb-2 text-xl font-semibold transition-colors
 				 group-hover:font-bold group-hover:text-secondary"
 			>
 				{title}
 			</h3>
-			<p class="mb-4 text-foreground-alt1">{description}</p>
+			<p class="text-netural-e4 mb-4">{description}</p>
 		</div>
 	</div>
 

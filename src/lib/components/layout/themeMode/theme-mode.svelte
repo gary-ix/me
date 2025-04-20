@@ -13,7 +13,7 @@
 
 <Button
 	aria-label="Switch theme"
-	class="rounded-full bg-transparent text-foreground"
+	class="text-netural-e8 rounded-full bg-transparent"
 	onclick={toggleMode}
 	variant="ghost"
 >

@@ -1,5 +1,5 @@
-<div class="flex min-h-screen items-center justify-center bg-background">
-	<h1 class="text-4xl font-bold text-foreground">
+<div class="bg-neutral-e1 flex min-h-screen items-center justify-center">
+	<h1 class="text-netural-e8 text-4xl font-bold">
 		TradingView Indicator Manager
 	</h1>
 </div>

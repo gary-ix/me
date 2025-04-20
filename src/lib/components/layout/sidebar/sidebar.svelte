@@ -116,8 +116,8 @@ md:w-2/5 md:flex-col md:p-12 md:px-24 md:py-20"
 						return window.scrollTo(0, 0)
 					}}
 				>
-					<h1 class="text-2xl font-bold text-foreground md:text-4xl">Gary</h1>
-					<p class="md:text-md text-xl text-foreground">Full-Stack Dev</p>
+					<h1 class="text-netural-e8 text-2xl font-bold md:text-4xl">Gary</h1>
+					<p class="md:text-md text-netural-e8 text-xl">Full-Stack Dev</p>
 				</a>
 			</div>
 		</div>
@@ -154,7 +154,7 @@ md:w-2/5 md:flex-col md:p-12 md:px-24 md:py-20"
 							</span>
 							<!-- Navigation Link Text -->
 							<span
-								class="relative z-10 text-secondary transition-all duration-300 group-hover:text-foreground-alt1"
+								class="group-hover:text-netural-e4 relative z-10 text-secondary transition-all duration-300"
 								class:md:font-bold={activeSection === section.toLowerCase() ||
 									(section === 'PROJECTS' && isProjectsRoute)}
 								class:md:pl-6={activeSection === section.toLowerCase() ||
@@ -162,7 +162,7 @@ md:w-2/5 md:flex-col md:p-12 md:px-24 md:py-20"
 								class:md:translate-x-4={activeSection ===
 									section.toLowerCase() ||
 									(section === 'PROJECTS' && isProjectsRoute)}
-								class:text-foreground={activeSection ===
+								class:text-netural-e8={activeSection ===
 									section.toLowerCase() ||
 									(section === 'PROJECTS' && isProjectsRoute)}
 							>
