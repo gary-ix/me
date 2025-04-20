@@ -18,8 +18,8 @@
 
 <a
 	class="
-	shadow-even-accent group overflow-hidden rounded-xl bg-background-start transition-all
-	duration-100 hover:scale-105 hover:shadow-accentHard-alt3 hover:brightness-90
+	shadow-even-accent bg-neutral-e1 group overflow-hidden rounded-xl transition-all
+	duration-100 hover:scale-105 hover:shadow-secondary hover:brightness-90
 	dark:hover:brightness-125
 	md:shadow-none
 	"
@@ -45,7 +45,7 @@
 		<div class="w-full p-6 md:w-2/3">
 			<h3
 				class="mb-2 text-xl font-semibold text-foreground transition-colors
-				 group-hover:font-bold group-hover:text-accentHard-alt3"
+				 group-hover:font-bold group-hover:text-secondary"
 			>
 				{title}
 			</h3>
@@ -56,7 +56,7 @@
 	{#if tags && tags.length > 0}
 		<div class="flex flex-wrap gap-2 p-4 pb-8">
 			{#each tags as tag}
-				<span class="rounded-lg bg-accentHard-alt1 px-3 py-1 text-sm text-white"
+				<span class="rounded-lg bg-secondary px-3 py-1 text-sm text-white"
 					>{tag}</span
 				>
 			{/each}

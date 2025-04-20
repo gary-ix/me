@@ -1,13 +1,13 @@
 <div
-	class="flex min-h-screen flex-col items-center justify-center bg-background"
+	class="bg-neutral-e1 flex min-h-screen flex-col items-center justify-center"
 >
-	<div class="mb-8 text-8xl text-foreground">⚠</div>
+	<div class="text-neutral-e8 mb-8 text-8xl">⚠</div>
 
-	<p class="text-foreground-alt1 mb-8 text-xl">Oops! Something went wrong.</p>
+	<p class="text-neutral-e7 mb-8 text-xl">Oops! Something went wrong.</p>
 	<button
-		class="rounded border-2 border-foreground
-			bg-transparent px-4 py-2 text-foreground transition duration-300
-			hover:bg-foreground hover:text-background"
+		class="border-neutral-e8 text-neutral-e8 hover:bg-neutral-e8
+			hover:text-neutral-e1 rounded border-2 bg-transparent px-4 py-2
+			transition duration-300"
 		onclick={() => {
 			return (window.location.href = '/')
 		}}

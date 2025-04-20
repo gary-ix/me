@@ -154,7 +154,7 @@ md:w-2/5 md:flex-col md:p-12 md:px-24 md:py-20"
 							</span>
 							<!-- Navigation Link Text -->
 							<span
-								class="relative z-10 text-accentHard-alt3 transition-all duration-300 group-hover:text-foreground-alt1"
+								class="relative z-10 text-secondary transition-all duration-300 group-hover:text-foreground-alt1"
 								class:md:font-bold={activeSection === section.toLowerCase() ||
 									(section === 'PROJECTS' && isProjectsRoute)}
 								class:md:pl-6={activeSection === section.toLowerCase() ||

@@ -9,7 +9,7 @@
 </script>
 
 <MouseGlow />
-<div class="relative min-h-screen bg-background-start md:flex">
+<div class="bg-neutral-e1 relative min-h-screen md:flex">
 	<!-- Sidebar (Always Sticky) -->
 
 	<Sidebar />

@@ -54,29 +54,29 @@
 		</h2>
 		<div class="text-md select-none space-y-6 text-foreground-alt1">
 			<p class="leading-relaxed">
-				Hi (hello world), My name is <span
-					class="font-bold text-accentHard-alt3">Garrett</span
+				Hi (hello world), My name is <span class="font-bold text-secondary"
+					>Garrett</span
 				>, and programming started for me by being a curious child who liked to
 				play on the computer.
 			</p>
 
 			<p class="leading-relaxed">
 				Currently I am building the best retail trading platform,
-				<span class="font-bold text-accentHard-alt3">Tradester </span>, which I
+				<span class="font-bold text-secondary">Tradester </span>, which I
 				co-founded. I enjoy making things
-				<span class="font-bold text-accentHard-alt3">look good</span> and
-				<span class="font-bold text-accentHard-alt3"> fast</span>
+				<span class="font-bold text-secondary">look good</span> and
+				<span class="font-bold text-secondary"> fast</span>
 				through multiple iterations. In my free time I
-				<span class="font-bold text-accentHard-alt3">build</span> various tools
-				(many trading related), and dabble in whatever re-ignites that childhood
-				<span class="font-bold text-accentHard-alt3">curiosity</span>.
+				<span class="font-bold text-secondary">build</span> various tools (many
+				trading related), and dabble in whatever re-ignites that childhood
+				<span class="font-bold text-secondary">curiosity</span>.
 			</p>
 
 			<p class="leading-relaxed">
 				When I am not programming and am touching grass I enjoy playing
-				<span class="font-bold text-accentHard-alt3"> golf, </span> going on
-				<span class="font-bold text-accentHard-alt3">walks </span>, and
-				<span class="font-bold text-accentHard-alt3"> socializing</span>
+				<span class="font-bold text-secondary"> golf, </span> going on
+				<span class="font-bold text-secondary">walks </span>, and
+				<span class="font-bold text-secondary"> socializing</span>
 				with friends and family.
 			</p>
 		</div>
