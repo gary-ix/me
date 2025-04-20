@@ -30,7 +30,6 @@
 		'Express',
 		'Redis',
 		'SQL & NoSQL',
-		'Docker',
 		'Serverless & Serverful'
 	]
 
