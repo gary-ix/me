@@ -106,6 +106,7 @@
 				tags={['Svelte', 'Tailwind', 'Cloudflare Pages', 'ESLint', 'Prettier']}
 				title="This Website"
 			/>
+
 			<ProjectCard
 				description="Making Sierra Chart accessible to everyone."
 				imageUrl="/tph.png"
@@ -121,6 +122,17 @@
 				]}
 				title="Trading Platform Help"
 			/>
+
+			<ProjectCard
+				description="Central hub for futures prop traders to stay in the loop.
+				 Also has a few tools to help traders on their prop trading journey."
+				imageUrl="/ptb.png"
+				newTab={true}
+				route="https://proptradingbuddy.com"
+				tags={['Astro', 'React', 'Tailwind', 'Cloudflare']}
+				title="Prop Trading Buddy"
+			/>
+
 			<ProjectCard
 				description="Two versions available for use. One is a desktop application built 
 					using Python & TKinter, the other is a chrome extension built using vanilla JS/CSS."
