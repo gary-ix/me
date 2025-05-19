@@ -48,7 +48,7 @@
 
 	// Intersection Observer for active section
 	function setupObserver() {
-		const sectionIds = ['about', 'skills', 'projects']
+		const sectionIds = ['about', 'projects']
 
 		const sections = sectionIds
 			.map(id => {
@@ -134,7 +134,7 @@ md:flex-col md:p-12 md:px-24 md:py-20 md:backdrop-blur-none"
 			<ul
 				class="flex flex-row justify-between px-0 md:flex-col md:space-y-2 md:px-0"
 			>
-				{#each ['ABOUT', 'SKILLS', 'PROJECTS'] as section}
+				{#each ['ABOUT', 'PROJECTS'] as section}
 					<li class="flex-1 md:flex-none">
 						<a
 							class="group relative block py-1.5 text-center text-sm font-medium transition-all

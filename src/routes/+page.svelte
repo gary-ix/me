@@ -82,7 +82,7 @@
 	</section>
 
 	<!-- Skills Section -->
-	<section id="skills">
+	<!-- <section id="skills">
 		<h2 class="text-netural-e8 mb-6 text-3xl font-bold">Skills</h2>
 		<div class="grid grid-cols-1 gap-8 md:grid-cols-2">
 			<SkillCard skills={languages} title="Lanuages" />
@@ -91,7 +91,7 @@
 			<SkillCard skills={ciSkills} title="CI" />
 			<SkillCard skills={toolingSkills} title="Tooling" />
 		</div>
-	</section>
+	</section> -->
 
 	<!-- Projects Section -->
 	<section id="projects">
